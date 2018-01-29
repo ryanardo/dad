@@ -7,23 +7,21 @@ import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import java.net.ConnectException;
-
 import static org.junit.Assert.*;
 
 /**
  * Created by Guest on 1/29/18.
  */
-public class Sql2oLoginDaoTest {
+public class LoginSQLTest {
 
-    private Sql2oLoginDao loginDao;
+    private LoginSQL loginDao;
     private Connection conn;
 
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
-        loginDao = new Sql2oLoginDao(sql2o);
+        loginDao = new LoginSQL(sql2o);
 
         conn = sql2o.open();
     }

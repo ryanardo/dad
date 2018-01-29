@@ -3,12 +3,12 @@ package models;
 /**
  * Created by Guest on 1/29/18.
  */
-public class interests {
+public class Interest {
 
     private int id;
     private String interests;
 
-    public interests(String interests) {
+    public Interest(String interests) {
         this.interests = interests;
     }
 
@@ -33,7 +33,7 @@ public class interests {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        interests interests1 = (interests) o;
+        Interest interests1 = (Interest) o;
 
         if (id != interests1.id) return false;
         return interests.equals(interests1.interests);
