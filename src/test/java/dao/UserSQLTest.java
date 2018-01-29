@@ -71,7 +71,18 @@ public class UserSQLTest {
     }
 
     @Test
-    public void deleteById() throws Exception {
+    public void deleteById_canDeleteUserById() throws Exception {
+        User user1 = new User(1, "Ross 'SoFetch' Fletcher", "Male", "Hi, I'm big and dumb!");
+        daoUser.add(user1);
+        int idUser1 = user1.getId();
+
+        User user2 = new User(2, "Sam 'Guest-Pass' Gespass", "Male", "Hi!");
+        daoUser.add(user2);
+        int idUser2 = user2.getId();
+
+        daoUser.deleteById(idUser1);
+
+        assertEquals(1, daoUser.getAll().size());
     }
 
 }
