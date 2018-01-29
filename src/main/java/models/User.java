@@ -17,6 +17,12 @@ public class User {
         this.userTagLine = userTagLine;
     }
 
+    public User(String realName, String gender, String userTagLine) {
+        this.realName = realName;
+        this.gender = gender;
+        this.userTagLine = userTagLine;
+    }
+
     /* GETTERS & SETTERS * * * * * * * * * * */
     public int getId() {
         return id;
