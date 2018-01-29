@@ -62,6 +62,12 @@ public class UserSQLTest {
 
     @Test
     public void updateUser() throws Exception {
+        User user1 = new User(4, "Whatthefuckever", "dolphin", "EEEEEE");
+        daoUser.add(user1);
+        int idUser1 = user1.getId();
+        daoUser.updateUser(idUser1, "Huh", "whale", "uuuooOOO");
+
+        assertEquals("Huh", daoUser.findById(idUser1).getRealName());
     }
 
     @Test
