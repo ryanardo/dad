@@ -2,7 +2,7 @@
 
 #### An application for finding local singles in YOUR area!
 
-Authors: [Danyell](https://github.com/danyellington), [Zack Tenzel](https://github.com/ktenzel), [Natalia Telpuhova](https://github.com/telpuhova), [Ryan G Ferris](https://github.com/ryanglenferris)
+Authors: [Danyell Murray](https://github.com/danyellington), [Natalia Telpuhova](https://github.com/telpuhova), [Ryan G Ferris](https://github.com/ryanglenferris), [Kyle Tenzel](https://github.com/ktenzel),
 
 ## DESCRIPTION
 
