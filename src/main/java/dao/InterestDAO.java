@@ -7,14 +7,14 @@ import java.util.List;
 public interface InterestDAO {
 
     //create
-    void add(Interest interests);
+    void add(Interest interest);
 
     //read
-    Interest findInterestsById(int id);
+    Interest findById(int id);
     List<Interest> getAll();
 
     //update
-    void update(int id, String Interests);
+    void update(int id, String interest);
 
     //delete
     void deleteInterestById(int id);

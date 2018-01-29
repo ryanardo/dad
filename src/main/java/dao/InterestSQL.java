@@ -1,23 +1,42 @@
 package dao;
 
-import models.Interest;
+import models.*;
+import org.omg.CORBA.SystemException;
+import org.sql2o.Sql2o;
+import org.sql2o.Connection;
+import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-/**
- * Created by Guest on 1/29/18.
- */
 public class InterestSQL implements InterestDAO {
 
-
-    @Override
-    public void add(Interest interests) {
-
+    private final Sql2o sql2o;
+    public InterestSQL(Sql2o sql2o) {
+        this.sql2o = sql2o;
     }
 
     @Override
-    public Interest findInterestsById(int id) {
-        return null;
+    public void add(Interest interest) {
+        String sql = "INSERT INTO interests (interest) VALUES (:interest)";
+        try(Connection con = sql2o.open()) {
+            int id = (int) con.createQuery(sql)
+                    .bind(interest)
+                    .executeUpdate()
+                    .getKey();
+            interest.setId(id);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @Override
+    public Interest findById(int id) {
+        String sql = "SELECT * FROM interests WHERE id = :id";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Interest.class);
+        }
     }
 
     @Override
@@ -26,7 +45,7 @@ public class InterestSQL implements InterestDAO {
     }
 
     @Override
-    public void update(int id, String Interests) {
+    public void update(int id, String interest) {
 
     }
 
@@ -40,17 +59,3 @@ public class InterestSQL implements InterestDAO {
 
     }
 }
-
-
-//    //create
-//    void add(Interest Interest);
-//
-//    //read
-//    Interests findInterestsById(int id);
-//    List<Interests> getAll();
-//    //update
-//    void update(int id, String Interests);
-//
-//    //delete
-//    void deleteInterestById(int id);
-//    void deleteAll();
