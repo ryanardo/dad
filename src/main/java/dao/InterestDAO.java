@@ -1,16 +1,18 @@
 package dao;
 
-/**
- * Created by Guest on 1/29/18.
- */
-public interface InterestsDao {
+import models.*;
+
+import java.util.List;
+
+public interface InterestDAO {
 
     //create
     void add(Interest interests);
 
     //read
-    Interests findInterestsById(int id);
-    List<Interests> getAll();
+    Interest findInterestsById(int id);
+    List<Interest> getAll();
+
     //update
     void update(int id, String Interests);
 
