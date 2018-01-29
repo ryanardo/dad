@@ -8,14 +8,14 @@ import java.util.List;
 public interface UserDAO {
 
     /* CREATE * * * * * * * * * * */
-    void add(int loginId, String realName, String gender, String userTagLine);
+    void add(User user);
 
     /* READ * * * * * * * * * * */
-    void findById(int id);
-    List<User> findAll(User user);
+    User findById(int id);
+    List<User> findAll();
 
     /* UPDATE * * * * * * * * * * */
-    void updateUser(String realName, String gender, String userTagLine);
+    void updateUser(int id, String realName, String gender, String userTagLine);
 
     /* DELETE * * * * * * * * * * */
     void deleteById(int id);

@@ -1,6 +1,6 @@
 SET MODE PostgreSQL;
 
-CREATE TABLE IF NOT EXISTS login (
+CREATE TABLE IF NOT EXISTS logins (
   id INT PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR,
   email VARCHAR,
@@ -9,17 +9,17 @@ CREATE TABLE IF NOT EXISTS login (
 );
 
 --USER INFO------------------------------------------------
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE IF NOT EXISTS users (
   id INT PRIMARY KEY AUTO_INCREMENT,
   realName VARCHAR,
   gender VARCHAR,
-  tagLine VARCHAR,
+  userTagLine VARCHAR,
   --foreign keys
   loginId INTEGER
 );
 
 --PROFILE INFO------------------------------------------------
-CREATE TABLE IF NOT EXISTS profile (
+CREATE TABLE IF NOT EXISTS profiles (
   id INT PRIMARY KEY AUTO_INCREMENT,
   profilePicture VARCHAR,
   aboutMe VARCHAR,
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS profile (
   userId INTEGER
 );
 
-CREATE TABLE IF NOT EXISTS job (
+CREATE TABLE IF NOT EXISTS jobs (
   id INT PRIMARY KEY AUTO_INCREMENT,
   job VARCHAR,
   position VARCHAR,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS education (
   education VARCHAR
 );
 
-CREATE TABLE IF NOT EXISTS aboutMe (
+CREATE TABLE IF NOT EXISTS aboutMes (
   id INT PRIMARY KEY AUTO_INCREMENT,
   about VARCHAR
 );
