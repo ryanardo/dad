@@ -1,12 +1,13 @@
 package dao;
 
-/**
- * Created by Guest on 1/29/18.
- */
-public interface InterestsDao {
+import models.Interests;
+
+import java.util.List;
+
+public interface InterestsDAO {
 
     //create
-    void add(Interest interests);
+    void add(Interests interests);
 
     //read
     Interests findInterestsById(int id);
