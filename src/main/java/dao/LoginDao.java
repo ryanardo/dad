@@ -11,7 +11,7 @@ public interface LoginDao {
     void add(Login login);
 
     //read
-    void findById(int id);
+    Login findByUserLogin(String username, String password);
     //update
 
     //delete

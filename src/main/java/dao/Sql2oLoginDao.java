@@ -30,23 +30,13 @@ public class Sql2oLoginDao implements LoginDao{
     }
 
     @Override
-    public Login findById(String username, String password, String birthday, int id) {
-        String sql = "SELECT FROM login WHERE (username, password, birthday, id) VALUES (:username, :password, :birthday, :id)";
+    public Login findByUserLogin(String username, String password) {
+        String sql = "SELECT id FROM login WHERE username = :username, password = :password";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("username", username)
                     .addParameter("password", password)
-                    .addParameter("birthday", birthday)
-                    .addParameter("id", id)
                     .executeAndFetchFirst(Login.class);
         }
     }
 }
-
-
-
-//
-//    username VARCHAR,
-//    email VARCHAR,
-//    password VARCHAR,
-//    birthday TIMESTAMP NULL DEFAULT NULL
