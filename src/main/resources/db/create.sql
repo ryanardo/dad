@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS login (
   username VARCHAR,
   email VARCHAR,
   password VARCHAR,
-  birthday TIMESTAMP NULL DEFAULT NULL
+  birthday DATETIME NULL DEFAULT NULL
 );
 
 --USER INFO------------------------------------------------
