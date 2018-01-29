@@ -30,6 +30,18 @@ public class InterestsSQL implements InterestsDAO {
     }
 
     @Override
+    public Interests findInterestsById(int id) {
+        String sql = "SELECT * FROM interests WHERE id = :id";
+        try(COnnection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(Interestes.class);
+        }
+    }
+
+    @Override
+    public List<Interests> getAll() {
+        
+    }
 }
 
 
