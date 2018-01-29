@@ -11,8 +11,7 @@ CREATE TABLE IF NOT EXISTS login (
 --USER INFO------------------------------------------------
 CREATE TABLE IF NOT EXISTS user (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  firstName VARCHAR,
-  lastName VARCHAR,
+  realName VARCHAR,
   gender VARCHAR,
   tagLine VARCHAR,
   --foreign keys
@@ -67,11 +66,11 @@ CREATE TABLE IF NOT EXISTS categories (
 );
 
 --JOIN TABLES:USER ------------------------------------------------
-CREATE TABLE IF NOT EXISTS users_singles (
+CREATE TABLE IF NOT EXISTS users_likes (
   id INT PRIMARY KEY AUTO_INCREMENT,
   --foreign keys
   userId  INTEGER,
-  singlesId  INTEGER
+  likedId  INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS user_interests (
