@@ -12,7 +12,7 @@ public interface UserDAO {
 
     /* READ * * * * * * * * * * */
     User findById(int id);
-    List<User> findAll();
+    List<User> getAll();
 
     /* UPDATE * * * * * * * * * * */
     void updateUser(int id, String realName, String gender, String userTagLine);

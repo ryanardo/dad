@@ -64,6 +64,7 @@ public class User {
         this.userTagLine = userTagLine;
     }
 
+
     /* EQUALS & HASH CODE * * * * * * * * * * */
     @Override
     public boolean equals(Object o) {

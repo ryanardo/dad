@@ -32,7 +32,7 @@ public class UserSQLTest {
         User user1 = new User(1, "Ross 'SoFetch' Fletcher", "Male", "Hi, I'm big and dumb!");
         daoUser.add(user1);
 
-        assertEquals(1, daoUser.findAll().size());
+        assertEquals(1, daoUser.getAll().size());
     }
 
     @Test
@@ -49,7 +49,15 @@ public class UserSQLTest {
     }
 
     @Test
-    public void findAll() throws Exception {
+    public void getAll() throws Exception {
+        User user1 = new User(4, "Whatthefuckever", "dolphin", "EEEEEE");
+        daoUser.add(user1);
+
+        User user2 = new User(8, "Youneek", "mosquito", "buzz baby");
+        daoUser.add(user2);
+
+        assertEquals(2, daoUser.getAll().size());
+
     }
 
     @Test

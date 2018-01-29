@@ -41,7 +41,7 @@ public class UserSQL implements UserDAO {
     }
 
     @Override
-    public List<User> findAll() {
+    public List<User> getAll() {
         String sql = "SELECT * FROM users";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
