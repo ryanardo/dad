@@ -36,7 +36,16 @@ public class UserSQLTest {
     }
 
     @Test
-    public void findById() throws Exception {
+    public void findById_canFindUserById() throws Exception {
+        User user1 = new User(1, "Ross 'SoFetch' Fletcher", "Male", "Hi, I'm big and dumb!");
+        daoUser.add(user1);
+        int idUser1 = user1.getId();
+
+        User user2 = new User(2, "Sam 'Guest-Pass' Gespass", "Male", "Hi!");
+        daoUser.add(user2);
+        int idUser2 = user2.getId();
+
+        assertEquals(2, daoUser.findById(idUser2).getLoginId());
     }
 
     @Test
