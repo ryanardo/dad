@@ -8,13 +8,12 @@ import models.Login;
 public interface LoginDao {
 
     //create
-    void add(Login login);
 
     //read
-    Login findByUserLogin(String username, String password);
+    Login getUserIdFromLogin(String username, String password);
+
+
     //update
 
     //delete
 }
-
-
