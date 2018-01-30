@@ -31,13 +31,19 @@ public class App {
         //HOME PAGE/LOGIN
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-
             return new ModelAndView(model, "login.hbs");
         }, new HandlebarsTemplateEngine());
 
 
-        //SHOW EXISTING USER AFTER LOGIN
 
+        //SHOW EXISTING USER AFTER LOGIN
+        get("/user/:loginId", (request, response)-> {
+            Map<String, Object>model = new HashMap<>();
+            int idOfUser = Integer.parseInt(request.params("loginId"));
+            User foundUser = userDao.findById(idOfUser);
+            model.put("user", foundUser);
+            return new ModelAndView(model, "profile.hbs");
+        }, new HandlebarsTemplateEngine());
 
 
         //NEW USER FORM/SIGN UP
@@ -55,7 +61,6 @@ public class App {
             String password = request.queryParams("password");
             String birthday = request.queryParams("birthday");
             Login newLogin = new Login(userName, password, birthday);
-
             int loginId = newLogin.getId();
             String name = request.queryParams("name");
             String gender = request.queryParams("gender");
@@ -68,11 +73,20 @@ public class App {
             return new ModelAndView(model, "welcome.hbs");
         }, new HandlebarsTemplateEngine());
 
+
+
+
         //UPDATE USER/EXPAND PROFILE
+
+
 
         //SHOW ALL USERS BY PREFERENCE
 
+
+
         //SHOW A SELECTED USER'S PROFILE
+
+
 
         //LIKE A SELECTED USER
 
