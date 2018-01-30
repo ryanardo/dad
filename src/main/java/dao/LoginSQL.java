@@ -16,21 +16,7 @@ public class LoginSQL implements LoginDao{
     }
 
     @Override
-    public void add(Login login){
-        String sql = "INSERT INTO login (username, password, birthday) VALUES (:username, :password, :birthday)";
-        try (Connection con = sql2o.open()) {
-            int id = (int) con.createQuery(sql)
-                    .bind(login)
-                    .executeUpdate()
-                    .getKey();
-            login.setId(id);
-        } catch (Sql2oException ex) {
-            System.out.print(ex);
-        }
-    }
-
-    @Override
-    public Login findByUserLogin(String username, String password) {
+    public Login getUserIdFromLogin(String username, String password) {
         String sql = "SELECT id FROM login WHERE username = :username, password = :password";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
