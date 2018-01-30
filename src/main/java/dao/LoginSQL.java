@@ -8,7 +8,7 @@ import org.sql2o.Sql2oException;
 /**
  * Created by Guest on 1/29/18.
  */
-public class LoginSQL implements LoginDao{
+public class LoginSQL implements LoginDAO {
 
     private final Sql2o sql2o;
     public LoginSQL(Sql2o sql2o){
