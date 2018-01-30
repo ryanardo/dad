@@ -4,7 +4,9 @@ package models;
  * Created by Guest on 1/29/18.
  */
 public class Login {
-
+    /* Ryan test Join Statement.
+    "SELECT * FROM logins JOIN users ON (users.loginsId = users.id) WHERE logins.id = :id";
+     */
     private int id;
     private String userName;
     private String userEmail;
