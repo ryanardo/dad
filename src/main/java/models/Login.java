@@ -5,12 +5,18 @@ package models;
  */
 public class Login {
 
+    private int id;
     private String userName;
     private String password;
 
-    public Login(String userName, String password) {
+    public Login(String userName, String password, String birthday) {
         this.userName = userName;
         this.password = password;
+        this.birthday = birthday;
+    }
+
+    public int getId() {
+        return id;
     }
 
 
@@ -48,9 +54,3 @@ public class Login {
         return result;
     }
 }
-
-
-//    username VARCHAR,
-//    email VARCHAR,
-//    password VARCHAR,
-//    birthday TIMESTAMP NULL DEFAULT NULL
