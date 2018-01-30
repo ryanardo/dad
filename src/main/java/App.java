@@ -37,11 +37,12 @@ public class App {
 
 
         //SHOW EXISTING USER AFTER LOGIN
-        get("/user/:loginId", (request, response)-> {
+        get("/user/:userId", (request, response)-> {
             Map<String, Object>model = new HashMap<>();
             int idOfUser = Integer.parseInt(request.params("loginId"));
             User foundUser = userDao.findById(idOfUser);
             model.put("user", foundUser);
+            model.put("login", foundUser);
             return new ModelAndView(model, "profile.hbs");
         }, new HandlebarsTemplateEngine());
 

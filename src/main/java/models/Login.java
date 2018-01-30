@@ -1,8 +1,6 @@
 package models;
 
-/**
- * Created by Guest on 1/29/18.
- */
+
 public class Login {
 
     private int id;
@@ -13,6 +11,12 @@ public class Login {
         this.userName = userName;
         this.password = password;
         this.birthday = birthday;
+    }
+
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {

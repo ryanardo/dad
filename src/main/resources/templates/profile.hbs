@@ -1,20 +1,28 @@
 {{#partial "content"}}
 
+<img>
+
 <p>Name: {{user.name}}</p>
+
+<p>User Name: {{login.userName}}</p>
 
 <p>{{user.tagLine}}</p>
 
 <p>Gender: {{user.gender}}</p>
 
-<p>Seeking: {{user.preference}}</p>
+<p>Seeking: {{user.preferredGender}}</p>
 
-<p>Birthday: {user.birthday}}</p>
+<p>Birthday: {{login.birthday}}</p>
 
-<p></p>
 
-<p></p>
+<form actions="user/:userId/profile/update" method="get">
+    <button type="submit" class="btn btn-default">Update Profile</button>
+</form>
 
-<p></p>
+<form actions="user/:userId/profile/search" method="get">
+    <button type="submit" class="btn btn-default">View Matches</button>
+</form>
 
-{{/partial}}
+
+    {{/partial}}
 {{> layout.hbs}}
