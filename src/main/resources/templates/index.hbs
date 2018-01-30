@@ -1,16 +1,4 @@
 {{#partial "content"}}
-    {{#if events}}
 
-        {{#each events}}
-            <h2>{{eventTitle}}</h2>
-            <p>{{eventDescription}}</p>
-            <p><a href="/events/{{idEvent}}">EVENT DETAILS</a></p>
-            <p><a href="/events/{{idEvent}}/delete">DELETE EVENT</a></p>
-        {{/each}}
-
-    {{else}}
-        <h2>Sorry! You don't have any events currently, try adding one to get going!</h2>
-
-    {{/if}}
 {{/partial}}
 {{> layout.hbs}}
