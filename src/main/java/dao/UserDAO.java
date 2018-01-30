@@ -9,10 +9,15 @@ public interface UserDAO {
 
     /* CREATE * * * * * * * * * * */
     void add(User user);
+    void addLike(int userId, int likedId);
 
     /* READ * * * * * * * * * * */
     User findById(int id);
     List<User> getAll();
+    List<User> matchingGender(User user);
+    List<Integer> userLikes(User user);
+    List<Integer> userLikedBy(User user);
+    List<User> getMatchedPairs(User user);
 
     /* UPDATE * * * * * * * * * * */
     void updateUser(int id, String realName, String gender, String userTagLine);
