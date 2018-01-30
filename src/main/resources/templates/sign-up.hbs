@@ -1,6 +1,6 @@
 {{#partial "content"}}
 
-    <form actions="SPARK_ROUTE" method="post">
+    <form actions="user/new" method="post">
       <label for="name">Name:</label>
       <input id="name" name="name" type="text">
     <br>
@@ -8,14 +8,14 @@
       <input id="birthday" name="birthday" type="date">
     <br>
       <label for="gender">Gender:</label>
-      <select>
+      <select id="gender">
         <option value="man">Man</option>
         <option value="woman">Woman</option>
         <option value="other">Other</option>
       </select>
     <br>
-      <label for="password">Interested in:</label>
-      <select>
+      <label for="preference">Interested in:</label>
+      <select id="preference">
         <option value="men">Men</option>
         <option value="women">Women</option>
         <option value="no-preference">No preference</option>
