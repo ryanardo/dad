@@ -21,6 +21,11 @@ public class Login {
         this.birthday = birthday;
     }
 
+    public Login(String userName, String password, String birthday) {
+        this.userName = userName;
+        this.password = password;
+        this.birthday = birthday;
+    }
 
     public int getId() {
         return id;
