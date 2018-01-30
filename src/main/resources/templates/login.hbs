@@ -1,22 +1,22 @@
 {{#partial "content"}}
+    <div class="container">
 
-{{#if}}
-    <label>Login</label>
-    <input>
-    <form actions="SPARK_ROUTE" method="post">
+    <form actions="user/" method="post">
       <label for="user-name">Username:</label>
-      <input id="user-name" name="user-name" type="text">
+      <input id="user-name" name="user-name" type="text" placeholder="Username">
     <br>
       <label for="password">Password:</label>
-      <input id="password" name="password" type="password">
+      <input id="password" name="password" type="password" placeholder="password">
     <br>
       <button type="submit" class="btn btn-default">Login</button><br>
     </form>
 
-        {{else}}
-      <button type="submit" class="btn btn-default">Sign Up!</button>
 
-{{/if}}
+<form action="user/new" method="get">
+    <button type="submit" class="btn btn-default">Sign Up!</button>
+</form>
+    </div>
+
 
 
 {{/partial}}

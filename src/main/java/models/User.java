@@ -23,6 +23,8 @@ public class User {
         this.userTagLine = userTagLine;
     }
 
+
+
     /* GETTERS & SETTERS * * * * * * * * * * */
     public int getId() {
         return id;

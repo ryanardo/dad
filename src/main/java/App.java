@@ -1,19 +1,20 @@
 import dao.LoginSQL;
+import models.Login;
+import models.User;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
-//import spark.template.handlebars.HandlebarsTemplateEngine;
+import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import dao.*;
+import spark.ModelAndView;
 
-
-import static spark.Spark.get;
-import static spark.Spark.post;
+import static spark.Spark.*;
 import static spark.Spark.staticFileLocation;
 
 
@@ -26,14 +27,55 @@ public class App {
         UserSQL userDao = new UserSQL(sql2o);
         LoginSQL loginDao = new LoginSQL(sql2o);
 
-    }
 
-    //HOME PAGE
-    get("/", (req, res) -> {
-        Map<String, Object> model = new HashMap<>();
+        //HOME PAGE/LOGIN
+        get("/", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+
+            return new ModelAndView(model, "login.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //SHOW EXISTING USER AFTER LOGIN
 
 
 
+        //NEW USER FORM/SIGN UP
+        get("/user/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "sign-up.hbs");
+        }, new HandlebarsTemplateEngine());
 
+
+
+        //PROCESS NEW USER
+        post("/user/new", (request, response)->{
+            Map<String, Object> model = new HashMap<>();
+            String userName = request.queryParams("userName");
+            String password = request.queryParams("password");
+            String birthday = request.queryParams("birthday");
+            Login newLogin = new Login(userName, password, birthday);
+
+            int loginId = newLogin.getId();
+            String name = request.queryParams("name");
+            String gender = request.queryParams("gender");
+            String preference = request.queryParams("preference");
+            String userTagLine = request.queryParams("userTagLine");
+            User newUser = new User(loginId, name, gender, preference);
+
+            userDao.add(newUser);
+            model.put("user", newUser);
+            return new ModelAndView(model, "welcome.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //UPDATE USER/EXPAND PROFILE
+
+        //SHOW ALL USERS BY PREFERENCE
+
+        //SHOW A SELECTED USER'S PROFILE
+
+        //LIKE A SELECTED USER
+
+        //
     }
 }
