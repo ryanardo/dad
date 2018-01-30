@@ -76,6 +76,16 @@ public class App {
 
         //LIKE A SELECTED USER
 
-        //
+        //SEARCH FOR A POTENTIAL MATCH
+        get("/profile/:user_id/search", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+
+            int user_id = Integer.parseInt(request.params("user_id"));
+            User user = userDao.findById(user_id);
+            List<User> users = userDao.matchingGender(user);
+
+            model.put("users", users);
+            return new ModelAndView(model, "search.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
