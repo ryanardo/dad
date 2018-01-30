@@ -7,7 +7,10 @@ import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class UserSQLTest {
 
@@ -36,6 +39,58 @@ public class UserSQLTest {
     }
 
     @Test
+    public void addLike_canAddLikeToUserLikesJoinTable_true() throws Exception {
+        User user1 = new User(1, "Ross 'SoFetch' Fletcher", "Male", "Unknown", "Hi, I'm big and dumb!");
+        daoUser.add(user1);
+
+        User user2 = new User(1, "Ryan 'SoHawt' Ferris" , "Unknown", "Male", "Hi, I'm big and dumb!");
+        daoUser.add(user2);
+
+        int idUser1 = user1.getId();
+        int idUser2 = user2.getId();
+
+        daoUser.addLike(idUser1, idUser2);
+
+        assertEquals(1, daoUser.userLikes(user1).size());
+        assertEquals(user2.getRealName(), daoUser.findById(daoUser.userLikes(user1).get(0)).getRealName());
+
+        daoUser.addLike(idUser2, idUser1);
+        assertEquals(user2.getRealName(), daoUser.findById(daoUser.userLikedBy(user1).get(0)).getRealName());
+    }
+
+    @Test
+    public void getMatchedPairs_canFindAccurateMatches_true() throws Exception {
+        User user1 = new User(1, "Ross 'SoFetch' Fletcher", "Male", "Female", "Hi, I'm big and dumb!");
+        daoUser.add(user1);
+
+        User user2 = new User(2, "Ryan 'SoHawt' Ferris" , "Male", "Male", "Hi, I'm big and dumb!");
+        daoUser.add(user2);
+
+        User user3 = new User(3, "Britney Spears", "Female", "Male", "I'm Britney Bitch.");
+        daoUser.add(user3);
+
+        User user4 = new User(4, "JT" , "Male", "Female", "Bye! Bye! Bye!");
+        daoUser.add(user4);
+
+        int idUser1 = user1.getId();
+        int idUser2 = user2.getId();
+        int idUser3 = user3.getId();
+        int idUser4 = user4.getId();
+
+        daoUser.addLike(idUser1, idUser2);
+        daoUser.addLike(idUser1, idUser3);
+        daoUser.addLike(idUser1, idUser4);
+
+        daoUser.addLike(idUser2, idUser1);
+        daoUser.addLike(idUser3, idUser1);
+        daoUser.addLike(idUser3, idUser4);
+
+        assertEquals(2, daoUser.getMatchedPairs(user1).size());
+        assertTrue(daoUser.getMatchedPairs(user1).contains(user3));
+        assertTrue(daoUser.getMatchedPairs(user1).contains(user2));
+    }
+
+    @Test
     public void findById_canFindUserById() throws Exception {
         User user1 = new User(1, "Ross 'SoFetch' Fletcher", "Male", "Hi, I'm big and dumb!");
         daoUser.add(user1);
@@ -59,6 +114,22 @@ public class UserSQLTest {
         assertEquals(2, daoUser.getAll().size());
 
     }
+
+    @Test
+    public void matchingGender() throws Exception {
+        User user1 = new User(4, "Whatthefuckever", "dolphin", "shark", "EEEEEE");
+        daoUser.add(user1);
+
+        User user2 = new User(8, "Youneek", "shark", "dolphin", "buzz baby");
+        daoUser.add(user2);
+
+        User user3 = new User(8, "Youneek", "shark", "shark", "buzz baby");
+        daoUser.add(user3);
+
+        assertEquals(1, daoUser.matchingGender(user1).size());
+        assertEquals(user2, daoUser.matchingGender(user1).get(0));
+    }
+
 
     @Test
     public void updateUser() throws Exception {

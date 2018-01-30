@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
   id INT PRIMARY KEY AUTO_INCREMENT,
   realName VARCHAR,
   gender VARCHAR,
+  preferredGender VARCHAR,
   userTagLine VARCHAR,
   --foreign keys
   loginId INTEGER
