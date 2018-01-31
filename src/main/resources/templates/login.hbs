@@ -2,20 +2,22 @@
 
     <div class="container">
         <h3>Login:</h3>
-    <form actions="user/" method="post">
-      <label for="user-name">Username:</label>
-      <input id="user-name" name="user-name" type="text" placeholder="Username">
-    <br>
-      <label for="password">Password:</label>
-      <input id="password" name="password" type="password" placeholder="password">
-    <br>
-      <button type="submit" class="btn btn-default">Login</button><br>
-    </form>
+        <h2>login.hbs</h2>
+        <form actions="/user/test" method="get">
+            <label for="user-name">Username:</label>
+            <input id="user-name" name="user-name" type="text" placeholder="Username">
+            <br>
+            <label for="password">Password:</label>
+            <input id="password" name="password" type="password" placeholder="password">
+            <br>
+            <button type="submit" class="btn btn-default">Login</button><br>
+        </form>
+
+        <form action="/user/new" method="get">
+            <button type="submit" class="btn btn-default">Sign Up!</button>
+        </form>
 
 
-<form action="user/new" method="get">
-    <button type="submit" class="btn btn-default">Sign Up!</button>
-</form>
     </div>
 
 {{/partial}}

@@ -13,11 +13,14 @@ public interface UserDAO {
 
     /* READ * * * * * * * * * * */
     User findById(int id);
+    User findUserByLoginId(int loginId);
     List<User> getAll();
     List<User> matchingGender(User user);
     List<Integer> userLikes(User user);
     List<Integer> userLikedBy(User user);
     List<User> getMatchedPairs(User user);
+
+
 
     /* UPDATE * * * * * * * * * * */
     void updateUser(int id, String realName, String gender, String userTagLine);

@@ -14,12 +14,6 @@ public class Login {
         this.birthday = birthday;
     }
 
-
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getId() {
         return id;
     }
@@ -60,7 +54,7 @@ public class Login {
         Login login = (Login) o;
 
         if (id != login.id) return false;
-        if (userName != null ? !userName.equals(login.userName) : login.userName != null) return false;
+        if (!userName.equals(login.userName)) return false;
         if (password != null ? !password.equals(login.password) : login.password != null) return false;
         return birthday != null ? birthday.equals(login.birthday) : login.birthday == null;
     }
@@ -68,7 +62,7 @@ public class Login {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + userName.hashCode();
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
         return result;

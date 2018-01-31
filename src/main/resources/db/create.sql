@@ -3,7 +3,6 @@ SET MODE PostgreSQL;
 CREATE TABLE IF NOT EXISTS logins (
   id INT PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR,
-  email VARCHAR,
   password VARCHAR,
   birthday DATETIME NULL DEFAULT NULL
 );

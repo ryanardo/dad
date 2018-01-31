@@ -30,13 +30,24 @@ public class LoginSQL implements LoginDAO {
     }
 
     @Override
-    public Login findByUserLogin(String username, String password) {
+    public Integer findByUserLogin(String username, String password) {
         String sql = "SELECT id FROM logins WHERE username = :username, password = :password";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("username", username)
                     .addParameter("password", password)
+                    .executeAndFetchFirst(Integer.class);
+        }
+    }
+
+    @Override
+    public Login findById(int id) {
+        String sql = "SELECT * FROM logins WHERE id = :id";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
                     .executeAndFetchFirst(Login.class);
         }
     }
+
 }
