@@ -21,7 +21,7 @@ import static spark.Spark.staticFileLocation;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/dad4.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/dad5.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         InterestSQL interestDao = new InterestSQL(sql2o);
         UserSQL userDao = new UserSQL(sql2o);
@@ -59,8 +59,13 @@ public class App {
             String gender = request.queryParams("gender");
             String preferredGender = request.queryParams("preference");
             String userTagLine = request.queryParams("userTagLine");
+            String age = request.queryParams("age");
+            String location = request.queryParams("location");
+            String sign = request.queryParams("sign");
+            String job = request.queryParams("job");
+            String kids = request.queryParams("kids");
 
-            User newUser = new User(loginId, name, gender, preferredGender, userTagLine);
+            User newUser = new User(loginId, name, gender, preferredGender, userTagLine, age, location, sign, job, kids);
             userDao.add(newUser);
 
             model.put("user", userDao.findById(newUser.getId()));
@@ -161,7 +166,7 @@ public class App {
             List<User> matches = userDao.getMatchedPairs(user);
 
             model.put("matches", matches);
-            model.put("user", user);
+            model.put("size", matches.size());
             model.put("our_user", user);
 
             return new ModelAndView(model, "matches.hbs");
@@ -184,12 +189,17 @@ public class App {
             String gender = request.queryParams("gender");
             String preferredGender = request.queryParams("preference");
             String userTagLine = request.queryParams("userTagLine");
+            String age = request.queryParams("age");
+            String location = request.queryParams("location");
+            String sign = request.queryParams("sign");
+            String job = request.queryParams("job");
+            String kids = request.queryParams("kids");
 
             int user_id = Integer.parseInt(request.params("user_id"));
 
             User user = userDao.findById(user_id);
 
-            userDao.updateUser(user_id, name, gender, preferredGender, userTagLine);
+            userDao.updateUser(user_id, name, gender, preferredGender, userTagLine, age, location, sign, job, kids);
 
             model.put("user", userDao.findById(user_id));
             model.put("login", loginDao.findById(user.getLoginId()));
