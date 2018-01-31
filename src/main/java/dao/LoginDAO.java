@@ -9,7 +9,7 @@ public interface LoginDAO {
     public void add(Login login);
 
     //read
-    Integer findByUserLogin(String username, String password);
+    Integer getLoginId(String username, String password);
     Login findById(int id);
 //    void Login getUserIdFromLogin(String username, String password);
 

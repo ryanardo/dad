@@ -34,13 +34,12 @@ public class LoginSQLTest {
     @Test
     public void add() throws Exception {
         Login testLogin = setupLogin();
-        int originalLoginId = setupLogin().getId();
         loginDao.add(testLogin);
         assertEquals(1, testLogin.getId());
     }
 
     @Test
-    public void findByUserLogin() throws Exception {
+    public void getLoginId() throws Exception {
         Login testLogin = setupLogin();
         Login testSecondLogin = setupSecondLogin();
         loginDao.add(testLogin);
@@ -49,7 +48,11 @@ public class LoginSQLTest {
         String testUserName = testLogin.getUserName();
         String testPassword = testLogin.getPassword();
 
-        assertEquals(1, loginDao.findByUserLogin(testUserName, testPassword));
+        String testUserName2 = testSecondLogin.getUserName();
+        String testPassword2 = testSecondLogin.getPassword();
+
+        assertEquals(1, (int) loginDao.getLoginId(testUserName, testPassword));
+        assertEquals(2, (int) loginDao.getLoginId(testUserName2, testPassword2));
     }
 
 

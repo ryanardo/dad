@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS logins (
   id INT PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR,
   password VARCHAR,
-  birthday DATETIME NULL DEFAULT NULL
+  birthday VARCHAR
 );
 
 --USER INFO------------------------------------------------
