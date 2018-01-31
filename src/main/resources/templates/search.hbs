@@ -2,13 +2,18 @@
 
 <h2>USER PROFILES</h2>
 
-    {{#each users}}
-        <br>
-        <h3>{{realName}}</h3>
-        <p>{{userTagLine}}</p>
-        <p>{{gender}}</p>
-        <p>{{preferredGender}}</p>
-    {{/each}}
-
+    <p>Singles in your area: {{size}}</p>
+    {{#if users}}
+        {{#each users}}
+            <br>
+            <h3>{{realName}}</h3>
+            <p>{{userTagLine}}</p>
+            <p>{{gender}}</p>
+            <p>{{preferredGender}}</p>
+            <p><a href="/profile/{{our_id}}/search/{{id}}">view user</a></p>
+        {{/each}}
+    {{else}}
+        <p>no users for you</p>
+    {{/if}}
 {{/partial}}
 {{> layout.hbs}}

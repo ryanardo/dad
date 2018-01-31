@@ -76,14 +76,16 @@ public class UserSQL implements UserDAO {
 
     @Override
     public List<User> matchingGender(User user) {
-        String sql = "SELECT * FROM users WHERE (gender = :preferredGender AND preferredGender = :gender)";
+        String sql = "SELECT * FROM users WHERE (gender = :preferredGender AND preferredGender = :gender AND id != :id)";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("preferredGender", user.getPreferredGender())
                     .addParameter("gender", user.getGender())
+                    .addParameter("id", user.getId())
                     .executeAndFetch(User.class);
         }
     }
+
 
     @Override
     public List<Integer> userLikes(User user) {

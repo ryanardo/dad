@@ -130,6 +130,23 @@ public class UserSQLTest {
         assertEquals(user2, daoUser.matchingGender(user1).get(0));
     }
 
+    @Test
+    public void matchingGender2() throws Exception {
+        User user1 = new User(1, "mike", "male", "male", "cool");
+        daoUser.add(user1);
+
+        User user2 = new User(2, "jack", "male", "male", "very cool");
+        daoUser.add(user2);
+
+        User user3 = new User(3, "bob", "male", "male", "very very cool");
+        daoUser.add(user3);
+
+        List<User> users = daoUser.matchingGender(user1);
+
+        assertEquals(2, users.size());
+        assertEquals("jack", users.get(0).getRealName());
+    }
+
 
     @Test
     public void updateUser() throws Exception {

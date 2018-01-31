@@ -1,0 +1,24 @@
+{{#partial "content"}}
+
+    <!--added for visibility and debugging:-->
+    <style>
+body {color:black;}
+</style>
+    <!---->
+
+    <h2>Potential match:</h2>
+
+    <p>Name: {{profile.realName}}</p>
+
+    <p>{{profile.userTagLine}}</p>
+
+    <p>Gender: {{profile.gender}}</p>
+
+    <p>Seeking: {{profile.preferredGender}}</p>
+
+    <form class="like" action="/profile/{{our_user.id}}/search/{{profile.id}}" method="post">
+        <input id="likeButton" type="submit" value="Like">
+    </form>
+
+{{/partial}}
+{{> layout.hbs}}

@@ -2,13 +2,19 @@
 
     <h2>YOUR MATCHES</h2>
 
-    {{#each matches}}
-        <br>
-        <h3>{{realName}}</h3>
-        <p>{{userTagLine}}</p>
-        <p>{{gender}}</p>
-        <p>{{preferredGender}}</p>
-    {{/each}}
+    <p>People that like you back: {{size}}</p>
+    {{#if matches}}
+        {{#each matches}}
+            <br>
+            <h3>{{realName}}</h3>
+            <p>{{userTagLine}}</p>
+            <p>{{gender}}</p>
+            <p>{{preferredGender}}</p>
+            <p><a href="/profile/{{our_user.id}}/search/{{id}}">view user</a></p>
+        {{/each}}
+    {{else}}
+        <p>no one likes you</p>
+    {{/if}}
 
 {{/partial}}
 {{> layout.hbs}}
