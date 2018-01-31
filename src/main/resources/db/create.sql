@@ -14,6 +14,11 @@ CREATE TABLE IF NOT EXISTS users (
   gender VARCHAR,
   preferredGender VARCHAR,
   userTagLine VARCHAR,
+  age VARCHAR,
+  location VARCHAR,
+  sign VARCHAR,
+  job VARCHAR,
+  kids VARCHAR,
   --foreign keys
   loginId INTEGER
 );
@@ -25,6 +30,13 @@ CREATE TABLE IF NOT EXISTS profiles (
   aboutMe VARCHAR,
   --foreign keys
   userId INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS users_likes (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  --foreign keys
+  userId  INTEGER,
+  likedId  INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS jobs (
@@ -66,12 +78,7 @@ CREATE TABLE IF NOT EXISTS categories (
 );
 
 --JOIN TABLES:USER ------------------------------------------------
-CREATE TABLE IF NOT EXISTS users_likes (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  --foreign keys
-  userId  INTEGER,
-  likedId  INTEGER
-);
+
 
 CREATE TABLE IF NOT EXISTS user_interests (
   id INT PRIMARY KEY AUTO_INCREMENT,

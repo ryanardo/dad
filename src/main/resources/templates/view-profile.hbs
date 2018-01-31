@@ -16,9 +16,22 @@ body {color:black;}
 
     <p>Seeking: {{preferredGender}}</p>
 
+    <p>Age: {{profile.age}}</p>
+
+    <p>Location: {{profile.location}}</p>
+
+    <p>Astrological Sign: {{profile.sign}}</p>
+
+    <p>Job: {{profile.job}}</p>
+
+    <p>Wants to have children? {{profile.kids}}</p>
+
+
     <form class="like" action="/profile/{{our_user.id}}/search/{{profile.id}}" method="post">
-        <input id="likeButton" type="submit" value="Like">
+        <input id="likeButton" type="submit" value="( ͡° ͜ʖ ͡°) Like">
     </form>
+
+
 
 {{/partial}}
 {{> layout.hbs}}
