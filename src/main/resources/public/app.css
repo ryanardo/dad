@@ -16,7 +16,7 @@ form{
 	background-color: rgba(117, 142, 141, 0.3);
 }
 
-.body{
+body{
 	position: absolute;
 	top: -20px;
 	left: -20px;
@@ -24,8 +24,10 @@ form{
 	bottom: -40px;
 	width: auto;
 	height: auto;
+    background-color: #000;
     background-image: url(https://i.imgur.com/L1KaXjH.jpg);
 	background-size: cover;
+	background-repeat: no-repeat;
 	z-index: 0;
 }
 
@@ -59,7 +61,7 @@ form{
 
 .header div span{
 	color: #fff !important;
-	text-shadow: 0px 0px 15px rgb(249, 137, 238);
+	text-shadow: 0px 0px 20px rgb(249, 137, 238);
 	font-size: 72px;
 }
 
@@ -69,7 +71,7 @@ font-family: 'Monoton', sans-serif;
 
 .card{
 	position: absolute;
-	background-color: rgba(255,255,255, 0.3);
+	background-color: rgba(0,0,0, 0.3);
 	top: calc(50% - 75px);
 	left: calc(55%);
 	height: 140px;
@@ -106,7 +108,7 @@ font-family: 'Monoton', sans-serif;
 input[type=text]{
 	width: 340px;
 	height: 30px;
-	background: rgba(255,255,255,0.4);
+	background: rgba(0,0,0,0.4);
 	border: 1px solid rgba(249, 137, 238,0.6);
 	border-radius: 2px;
 	color: #lightgray;
@@ -119,7 +121,7 @@ input[type=text]{
 input[type=password]{
 	width: 340px;
 	height: 30px;
-	background: rgba(255,255,255,0.4);
+	background: rgba(0,0,0,0.4);
 	border: 1px solid rgba(249, 137, 238,0.6);
 	border-radius: 2px;
 	color: #black;
@@ -145,14 +147,14 @@ input[type=submit]{
 	margin-top: 10px;
 }
 
-.login input[type=submit]:hover{
+input[type=submit]:hover{
 	opacity: 0.8;
 }
 
-.login input[type=submit]:active{
+input[type=submit]:active{
 	opacity: 0.6;
 }
 
-.login input[type=submit]:focus{
+input[type=submit]:focus{
 	outline: none;
 }
