@@ -13,7 +13,7 @@ body{
 }
 
 form{
-	background-color: rgba(117, 142, 141, 0.5);
+	background-color: rgba(117, 142, 141, 0.3);
 }
 
 .body{
@@ -24,9 +24,7 @@ form{
 	bottom: -40px;
 	width: auto;
 	height: auto;
-    background-image: url(https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/04/18/16/wine-evening.jpg);
-//    background: linear-gradient(to right, rgba(255,0,0,0), rgba(178, 232, 157,1));
-
+    background-image: url(http://ak9.picdn.net/shutterstock/videos/21398209/thumb/12.jpg);
 	background-size: cover;
 	z-index: 0;
 }
@@ -45,22 +43,30 @@ form{
 
 .header{
 	position: absolute;
-	top: calc(50% - 35px);
-	left: calc(50% - 255px);
+	top: calc(40% - 30px);
+	left: calc(50% - 300px);
 	z-index: 2;
 }
 
 .header div{
 	float: left;
 	color: #000;
-	font-family: 'Exo', sans-serif;
+	font-family: 'Fascinate', sans-serif;
 	font-size: 35px;
 	font-weight: 200;
 }
 
 .header div span{
-	color: #000 !important;
-	text-shadow: 0px 0px 15px #fff;
+	color: #fff !important;
+	text-shadow: 0px 0px 1px rgb(87, 249, 205);
+	font-size: 72px;
+      background: -webkit-linear-gradient(#eee, #333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+
+#connection{
+font-family: 'Exo', sans-serif;
 }
 
 .login{
@@ -88,8 +94,8 @@ form{
 	border: 1px solid lightgray;
 	width: 350px;
     height: 40px;
-    background-color: rgb(255,255,255);
-    border: 1px solid rgba(255,255,255,0.6);
+    background: rgb(87, 249, 205);
+    border: 1px solid rgb(87, 249, 205);
     border-radius: 2px;
     color: #lightgray;
     font-family: 'Exo', sans-serif;
@@ -101,8 +107,8 @@ form{
 input[type=text]{
 	width: 340px;
 	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
+	background: rgba(255,255,255,0.3);
+	border: 1px solid rgba(87, 249, 205,0.6);
 	border-radius: 2px;
 	color: #lightgray;
 	font-family: 'Exo', sans-serif;
@@ -114,8 +120,8 @@ input[type=text]{
 input[type=password]{
 	width: 340px;
 	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
+	background: rgba(255,255,255,0.3);
+	border: 1px solid rgba(87, 249, 205,0.6);
 	border-radius: 2px;
 	color: #black;
 	font-family: 'Exo', sans-serif;
@@ -128,8 +134,8 @@ input[type=password]{
 .login input[type=submit]{
 	width: 350px;
 	height: 35px;
-	background: #fff;
-	border: 1px solid #fff;
+	background: rgb(87, 249, 205);
+	border: 1px solid rgb(87, 249, 205);
 	cursor: pointer;
 	border-radius: 2px;
 	color: #a18d6c;
