@@ -169,16 +169,46 @@ public class App {
 
 
         //update
+        get("/profile/:user_id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "update.hbs");
+        }, new HandlebarsTemplateEngine());
 
 
-//        //DELETE PROFILE
-//
-//        get("/user/:user_id/delete", (request, response)-> {
-//            Map<String, Object> model = new HashMap<>();
-//            int idOfUser = Integer.parseInt(request.params("userId"));
-//            User deleteUser = userDao.findById(idOfUser);
-//            return new ModelAndView(model, "goodbye.hbs");
-//        }, new HandlebarsTemplateEngine());
+        post("/profile/:user_id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+
+
+
+            String name = request.queryParams("name");
+            String gender = request.queryParams("gender");
+            String preferredGender = request.queryParams("preference");
+            String userTagLine = request.queryParams("userTagLine");
+
+            int user_id = Integer.parseInt(request.params("user_id"));
+
+            User user = userDao.findById(user_id);
+
+            userDao.updateUser(user_id, name, gender, preferredGender, userTagLine);
+
+            model.put("user", userDao.findById(user_id));
+            model.put("login", loginDao.findById(user.getLoginId()));
+
+            return new ModelAndView(model, "profile.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //DELETE PROFILE
+
+        get("/profile/:user_id/delete", (request, response)-> {
+            Map<String, Object> model = new HashMap<>();
+
+            int idOfUser = Integer.parseInt(request.params("user_id"));
+            User deleteUser = userDao.findById(idOfUser);
+            userDao.deleteById(idOfUser);
+
+            return new ModelAndView(model, "goodbye.hbs");
+        }, new HandlebarsTemplateEngine());
 
     }
 }

@@ -126,13 +126,14 @@ public class UserSQL implements UserDAO {
 
     /* UPDATE * * * * * * * * * * */
     @Override
-    public void updateUser(int id, String realName, String gender, String userTagLine) {
-        String sql = "UPDATE users SET realName = :realName, gender = :gender, userTagLine = :userTagLine WHERE id = :id";
+    public void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine) {
+        String sql = "UPDATE users SET realName = :realName, gender = :gender, preferredGender = :preferredGender, userTagLine = :userTagLine WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
                     .addParameter("realName", realName)
                     .addParameter("gender", gender)
+                    .addParameter("preferredGender", preferredGender)
                     .addParameter("userTagLine", userTagLine)
                     .executeUpdate();
         } catch (Sql2oException ex) {

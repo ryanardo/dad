@@ -22,6 +22,9 @@ body {color:black;}
 
 <p><a href="/profile/{{user.id}}/search">View Potential Matches</a></p>
 <p><a href="/profile/{{user.id}}/matches">View Matches</a></p>
+<p><a href="/profile/{{user.id}}/update">Update Profile</a></p>
+<p><a href="/profile/{{user.id}}/delete">Delete Profile</a></p>
+
 
 <form actions="/profile/{{user.id}}/matches" method="get">
     <input type="submit" class="btn btn-default" value="View Matches">
@@ -31,7 +34,7 @@ body {color:black;}
     <input type="submit" class="btn btn-default" value="View Potential Matches">
 </form>
 
-<form actions="/user/:userId/profile/update" method="get">
+<form actions="/profile/{{user.id}}/update" method="get">
     <button type="submit" class="btn btn-default">Update Profile</button>
 </form>
 
