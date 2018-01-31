@@ -1,0 +1,14 @@
+{{#partial "content"}}
+
+    <h2>YOUR MATCHES</h2>
+
+    {{#each matches}}
+        <br>
+        <h3>{{realName}}</h3>
+        <p>{{userTagLine}}</p>
+        <p>{{gender}}</p>
+        <p>{{preferredGender}}</p>
+    {{/each}}
+
+{{/partial}}
+{{> layout.hbs}}

@@ -87,5 +87,35 @@ public class App {
             model.put("users", users);
             return new ModelAndView(model, "search.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //SEE A LIST OF USERS YOU'VE MATCHED WITH
+        get("/profile/:user_id/matches", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+
+            int user_id = Integer.parseInt(request.params("user_id"));
+            User user = userDao.findById(user_id);
+            List<User> matches = userDao.getMatchedPairs(user);
+
+            model.put("matches", matches);
+            return new ModelAndView(model, "matches.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //SEE A LIST OF USERS YOU'VE MATCHED WITH
+        get("/profile/:user_id/search/:profile_id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+
+            int user_id = Integer.parseInt(request.params("user_id"));
+            User user = userDao.findById(user_id);
+            List<User> matches = userDao.getMatchedPairs(user);
+
+            int profile_id = Integer.parseInt(request.params("profile_id"));
+            User profile = userDao.findById(profile_id);
+
+            model.put("matches", matches);
+            model.put("profile", profile);
+
+            return new ModelAndView(model, "profile.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }
