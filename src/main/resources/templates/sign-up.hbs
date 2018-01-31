@@ -11,10 +11,19 @@
 <nav>
     <div class="nav-wrapper purple">
       <a href="/" class="brand-logo center">Neon</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-      </ul>
-    </div>
-  </nav>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="sass.html">Home</a></li>
+              <li><a href="badges.html">Search</a></li>
+              <li><a href="collapsible.html">Matches</a></li>
+              <li><a href="mobile.html">Logout</a></li>
+            </ul>
+          </div>
+        </nav>
+
+
+
+
 
 
 <div class="container">
@@ -22,7 +31,7 @@
     <form actions="/user/new" method="post">
 
         <label for="name">Name:</label>
-        <input id="name" name="name" type="text">
+        <input id="name" name="name" type="text" placeholder="First Last">
         <br>
 
         <label for="userTagLine">Tag Line:</label>
@@ -33,14 +42,14 @@
         <input id="birthday" name="birthday" type="date">
         <br>
 
-        <label for="gender">Gender:</label>
+        <label for="gender">I am a:</label>
               <input name="Gender" type="radio" id="iAmWoman" />
               <label for="iAmWoman">Woman</label>
               <input name="Gender" type="radio" id="iAmMan" />
               <label for="iAmMan">Man</label>
               <input name="Gender" type="radio" id="iAmOther" />
               <label for="iAmOther">Other</label>
-
+        <p>
         <label for="preference">Interested in:</label>
         <input name="lookingFor" type="radio" id="lookingForWoman" />
                       <label for="lookingForWoman">Woman</label>
@@ -48,21 +57,27 @@
                       <label for="lookingForMan">Man</label>
                       <input name="Gender" type="radio" id="lookingForOther" />
                       <label for="lookingForOther">Other</label>
+         </p>
         <br>
-
-
+<div class="row">
+    <div class="input-field col s6">
         <label for="user-name">Username:</label>
         <input id="user-name" name="user-name" type="text">
-        <br>
+    </div>
+    <div class="input-field col s6">
         <label for="password">Password:</label>
         <input id="password" name="password" type="password">
+    </div>
         <br>
-        <button type="submit" class="btn btn-default purple">Sign Up!</button>
+</div>
+<button type="submit" class="btn btn-default purple">Sign Up!</button>
     </form>
    </div>
 
-<script> $(document).ready(function() {
+<script>
+document.ready(function() {
             $('select').material_select();
+            $(".button-collapse").sideNav();
           });
 </script>
 
