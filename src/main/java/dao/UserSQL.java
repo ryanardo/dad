@@ -74,15 +74,26 @@ public class UserSQL implements UserDAO {
         }
     }
 
+
     @Override
     public List<User> matchingGender(User user) {
-        String sql = "SELECT * FROM users WHERE (gender = :preferredGender AND preferredGender = :gender AND id != :id)";
-        try (Connection con = sql2o.open()) {
-            return con.createQuery(sql)
-                    .addParameter("preferredGender", user.getPreferredGender())
-                    .addParameter("gender", user.getGender())
-                    .addParameter("id", user.getId())
-                    .executeAndFetch(User.class);
+        if (user.getPreferredGender().equals("noPref")) {
+            String sql = "SELECT * FROM users WHERE ((preferredGender = :gender OR preferredGender = 'noPref') AND id != :id)";
+            try (Connection con = sql2o.open()) {
+                return con.createQuery(sql)
+                        .addParameter("gender", user.getGender())
+                        .addParameter("id", user.getId())
+                        .executeAndFetch(User.class);
+            }
+        } else {
+            String sql = "SELECT * FROM users WHERE (gender = :preferredGender AND preferredGender = :gender AND id != :id)";
+            try (Connection con = sql2o.open()) {
+                return con.createQuery(sql)
+                        .addParameter("preferredGender", user.getPreferredGender())
+                        .addParameter("gender", user.getGender())
+                        .addParameter("id", user.getId())
+                        .executeAndFetch(User.class);
+            }
         }
     }
 

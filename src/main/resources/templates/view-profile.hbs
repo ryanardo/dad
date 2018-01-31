@@ -12,9 +12,9 @@ body {color:black;}
 
     <p>{{profile.userTagLine}}</p>
 
-    <p>Gender: {{profile.gender}}</p>
+    <p>Gender: {{gender}}</p>
 
-    <p>Seeking: {{profile.preferredGender}}</p>
+    <p>Seeking: {{preferredGender}}</p>
 
     <form class="like" action="/profile/{{our_user.id}}/search/{{profile.id}}" method="post">
         <input id="likeButton" type="submit" value="Like">

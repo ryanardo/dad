@@ -19,6 +19,44 @@ import static spark.Spark.staticFileLocation;
 
 
 public class App {
+
+    public static String getGenderString(String userGender) {
+        String gender = "";
+
+        if (userGender.equals("other")) {
+            gender = "Other";
+        }
+        else if (userGender.equals("male")) {
+            gender = "Man";
+        }
+        else if (userGender.equals("female")) {
+            gender = "Woman";
+        }
+
+        return gender;
+    }
+
+    public static String getPreferredGenderString(String userPreferredGender) {
+
+        String preferredGender = "";
+
+
+        if (userPreferredGender.equals("other")) {
+            preferredGender = "Other";
+        }
+        else if (userPreferredGender.equals("male")) {
+            preferredGender = "Men";
+        }
+        else if (userPreferredGender.equals("female")) {
+            preferredGender = "Women";
+        }
+        else if (userPreferredGender.equals("noPref")) {
+            preferredGender = "No preference";
+        }
+
+        return preferredGender;
+    }
+
     public static void main(String[] args) {
         staticFileLocation("/public");
         String connectionString = "jdbc:h2:~/dad4.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
@@ -76,11 +114,19 @@ public class App {
             Map<String, Object> model = new HashMap<>();
 
             User user = userDao.findById(Integer.parseInt(request.params("user_id")));
-            model.put("user", user);
+
 
             int login_id = user.getLoginId();
             Login login = loginDao.findById(login_id);
+
+
+            String gender = getGenderString(user.getGender());
+            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+
+            model.put("gender", gender);
+            model.put("preferredGender", preferredGender);
             model.put("login", login);
+            model.put("user", user);
 
             return new ModelAndView(model, "profile.hbs");
         }, new HandlebarsTemplateEngine());
@@ -112,6 +158,13 @@ public class App {
 
             List<User> users = userDao.matchingGender(user);
 
+
+            String gender = getGenderString(user.getGender());
+            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+
+            model.put("cGender", gender);
+            model.put("cPreferredGender", preferredGender);
+
             model.put("users", users);
             model.put("size", users.size());
             model.put("our_id", user_id);
@@ -128,6 +181,13 @@ public class App {
 
             int profile_id = Integer.parseInt(request.params("profile_id"));
             User profile = userDao.findById(profile_id);
+
+
+            String gender = getGenderString(user.getGender());
+            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+
+            model.put("gender", gender);
+            model.put("preferredGender", preferredGender);
 
             model.put("our_user", user);
             model.put("profile", profile);
@@ -148,6 +208,12 @@ public class App {
             model.put("our_user", user);
             model.put("profile", profile);
 
+            String gender = getGenderString(user.getGender());
+            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+
+            model.put("gender", gender);
+            model.put("preferredGender", preferredGender);
+
             return new ModelAndView(model, "view-profile.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -163,6 +229,12 @@ public class App {
             model.put("matches", matches);
             model.put("user", user);
             model.put("our_user", user);
+
+            String gender = getGenderString(user.getGender());
+            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+
+            model.put("cGender", gender);
+            model.put("cPreferredGender", preferredGender);
 
             return new ModelAndView(model, "matches.hbs");
         }, new HandlebarsTemplateEngine());

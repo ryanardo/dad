@@ -10,6 +10,7 @@ import org.sql2o.Sql2o;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 public class UserSQLTest {
@@ -113,6 +114,31 @@ public class UserSQLTest {
 
         assertEquals(2, daoUser.getAll().size());
 
+    }
+
+    @Test
+    public void matchingGender3() throws Exception {
+        User user1 = new User(4, "Whatthefuckever", "male", "noPref", "EEEEEE");
+        daoUser.add(user1);
+
+        User user2 = new User(8, "Youneek", "female", "male", "buzz baby");
+        daoUser.add(user2);
+
+        User user3 = new User(8, "Youneek", "other", "noPref", "buzz baby");
+        daoUser.add(user3);
+
+        User user4 = new User(8, "Youneek", "other", "female", "buzz baby");
+        daoUser.add(user4);
+
+        User user5 = new User(8, "Youneek", "other", "male", "buzz baby");
+        daoUser.add(user5);
+
+
+        assertEquals(3, daoUser.matchingGender(user1).size());
+        assertTrue(daoUser.matchingGender(user1).contains(user2));
+        assertTrue(daoUser.matchingGender(user1).contains(user3));
+        assertNotEquals(true, daoUser.matchingGender(user1).contains(user4));
+        assertTrue(daoUser.matchingGender(user1).contains(user5));
     }
 
     @Test
