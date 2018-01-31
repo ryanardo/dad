@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import dao.LoginSQL;
 import models.Login;
 import models.User;
 import org.omg.CORBA.INTERNAL;
+=======
+import dao.LoginSQL;
+import models.Login;
+import models.User;
+>>>>>>> 14f0b1e0d50a1fbff23b65bfe440c269b3fc6c13
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.Request;
@@ -23,7 +29,11 @@ import static spark.Spark.staticFileLocation;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
+<<<<<<< HEAD
         String connectionString = "jdbc:h2:~/dad2.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+=======
+        String connectionString = "jdbc:h2:~/dad.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+>>>>>>> 14f0b1e0d50a1fbff23b65bfe440c269b3fc6c13
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         InterestSQL interestDao = new InterestSQL(sql2o);
         UserSQL userDao = new UserSQL(sql2o);
@@ -33,10 +43,15 @@ public class App {
         //HOME PAGE/LOGIN
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 14f0b1e0d50a1fbff23b65bfe440c269b3fc6c13
             return new ModelAndView(model, "login.hbs");
         }, new HandlebarsTemplateEngine());
 
 
+<<<<<<< HEAD
 
         //SHOW EXISTING USER AFTER LOGIN
         get("/user/login", (request, response)-> {
@@ -74,6 +89,10 @@ public class App {
 //
 //            return new ModelAndView(model, "profile.hbs");
 //        }, new HandlebarsTemplateEngine());
+=======
+        //SHOW EXISTING USER AFTER LOGIN
+
+>>>>>>> 14f0b1e0d50a1fbff23b65bfe440c269b3fc6c13
 
 
         //NEW USER FORM/SIGN UP
@@ -82,6 +101,7 @@ public class App {
             return new ModelAndView(model, "sign-up.hbs");
         }, new HandlebarsTemplateEngine());
 
+<<<<<<< HEAD
 
 
         get("/user/:user_id/profile", (request, response) -> {
@@ -155,5 +175,38 @@ public class App {
             User deleteUser = userDao.findById(idOfUser);
             return new ModelAndView(model, "goodbye.hbs");
         }, new HandlebarsTemplateEngine());
+=======
+
+
+        //PROCESS NEW USER
+//        post("/user/new", (request, response)->{
+//            Map<String, Object> model = new HashMap<>();
+//            String userName = request.queryParams("userName");
+//            String password = request.queryParams("password");
+//            String birthday = request.queryParams("birthday");
+//            Login newLogin = new Login(userName, password, birthday);
+//
+//            int loginId = newLogin.getId();
+//            String name = request.queryParams("name");
+//            String gender = request.queryParams("gender");
+//            String preference = request.queryParams("preference");
+//            String userTagLine = request.queryParams("userTagLine");
+//            User newUser = new User(loginId, name, gender, preference);
+//
+//            userDao.add(newUser);
+//            model.put("user", newUser);
+//            return new ModelAndView(model, "welcome.hbs");
+//        }, new HandlebarsTemplateEngine());
+
+        //UPDATE USER/EXPAND PROFILE
+
+        //SHOW ALL USERS BY PREFERENCE
+
+        //SHOW A SELECTED USER'S PROFILE
+
+        //LIKE A SELECTED USER
+
+        //
+>>>>>>> 14f0b1e0d50a1fbff23b65bfe440c269b3fc6c13
     }
 }
