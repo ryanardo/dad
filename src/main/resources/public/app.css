@@ -25,7 +25,7 @@ body{
 	width: auto;
 	height: auto;
     background-color: #000;
-    background-image: url(https://i.imgur.com/L1KaXjH.jpg);
+    background-image: url(https://data.whicdn.com/images/197687411/original.gif);
 	background-size: cover;
 	background-repeat: no-repeat;
 	z-index: 0;
@@ -44,11 +44,12 @@ body{
 }
 
 .header{
-  text-align: left;
+    text-align: left;
 	position: absolute;
-	top: calc(45% - 30px);
+	top: calc(50% - 30px);
 	left: calc(40% - 300px);
 	z-index: 2;
+	line-height: 500%;
 }
 
 .nav-wrapper{
@@ -73,9 +74,14 @@ font-family: 'Monoton', sans-serif;
 	font-size: 72px;
 }
 
+#neon {
+    font-size: 165px;
+    }
+
 #connection{
-font-family: 'Monoton', sans-serif;
-}
+    font-family: 'Monoton', sans-serif;
+    font-size: 72px;
+    }
 
 .card{
 	position: absolute;
