@@ -75,6 +75,9 @@ font-family: 'Monoton', sans-serif;
 	font-size: 72px;
 }
 
+.italic {
+    font-style: italic
+    }
 #neon {
     font-size: 165px;
     }
