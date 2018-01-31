@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Neon Connection</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel='stylesheet' href='src/css/app.css'>
+    </head>
+<body>
+
+<nav>
+    <div class="nav-wrapper purple">
+      <a href="/" class="brand-logo center">Neon</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="sass.html"><i class="material-icons">home</i></a></li>
+              <li><a href="badges.html"><i class="material-icons">search</i></a></li>
+              <li><a href="collapsible.html">Matches</a></li>
+              <li><a href="mobile.html">Logout</a></li>
+            </ul>
+          </div>
+        </nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="col s6 myProfile">
+
+            <div class="myPic"><img url(https://www.residentadvisor.net/images/news/2017/thomas-bangalter-daft-punk.jpg)></div>
+            <div class="col s6">
+              <div class="row">
+                <div class="col s6">
+                  <p>{{user.name}}</p>
+                </div>
+                <div class="col s6">
+                  <p>{{login.birthday}}</p>
+                </div>
+              </div>
+              <div class="col m12">
+                <p>{{user.userTagLine}}</p>
+              </div>
+            </div>
+          </div>
+
+        <footer>
+        </footer>
+    </body>
+</html>
