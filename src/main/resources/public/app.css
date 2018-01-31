@@ -51,6 +51,14 @@ body{
 	z-index: 2;
 }
 
+.nav-wrapper{
+	padding-top: 10px;
+	background-color: rgba(0,0,0,0.5);
+	margin-bottom: 50px;
+}
+.brand-logo{
+font-family: 'Monoton', sans-serif;
+}
 .header div{
 	float: left;
 	color: #000;
@@ -95,8 +103,8 @@ font-family: 'Monoton', sans-serif;
 	border: 1px solid lightgray;
 	width: 350px;
     height: 40px;
-    background: rgb(249, 137, 238);
-    border: 1px solid rgb(249, 137, 238);
+    background: purple;
+    border: 1px solid purple;
     border-radius: 2px;
     color: #fff;
     font-family: 'Exo', sans-serif;
@@ -111,7 +119,7 @@ input[type=text]{
 	background: rgba(0,0,0,0.4);
 	border: 1px solid rgba(249, 137, 238,0.6);
 	border-radius: 2px;
-	color: #lightgray;
+	color: white;
 	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
@@ -124,7 +132,7 @@ input[type=password]{
 	background: rgba(0,0,0,0.4);
 	border: 1px solid rgba(249, 137, 238,0.6);
 	border-radius: 2px;
-	color: #black;
+	color: white;
 	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
@@ -135,8 +143,8 @@ input[type=password]{
 input[type=submit]{
 	width: 350px;
 	height: 35px;
-	background: rgb(249, 137, 238);
-	border: 1px solid rgb(249, 137, 238);
+	background: purple;
+	border: 1px solid purple;
 	cursor: pointer;
 	border-radius: 2px;
 	color: #fff;

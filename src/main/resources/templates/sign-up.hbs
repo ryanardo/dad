@@ -1,6 +1,26 @@
 {{#partial "content"}}
 
-    <form actions="user/new" method="post">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+        <link rel='stylesheet' href='/app.css'>
+    </head>
+<body>
+
+
+<nav>
+    <div class="nav-wrapper purple">
+      <a href="/" class="brand-logo center">Neon</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="container">
+
+    <form actions="/user/new" method="post">
+
         <label for="name">Name:</label>
         <input id="name" name="name" type="text">
         <br>
@@ -36,8 +56,15 @@
         <label for="password">Password:</label>
         <input id="password" name="password" type="password">
         <br>
-        <button type="submit" class="btn btn-default">Sign Up!</button>
+        <button type="submit" class="btn btn-default purple">Sign Up!</button>
     </form>
+   </div>
+
+<script> $(document).ready(function() {
+            $('select').material_select();
+          });
+</script>
+
 
 {{/partial}}
 {{> layout.hbs}}
