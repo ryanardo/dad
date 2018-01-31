@@ -56,6 +56,16 @@ public class UserSQL implements UserDAO {
     }
 
     @Override
+    public User findUserByLoginId(int loginId) {
+        String sql = "SELECT * FROM users WHERE loginId = :loginId";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("loginId", loginId)
+                    .executeAndFetchFirst(User.class);
+        }
+    }
+
+    @Override
     public List<User> getAll() {
         String sql = "SELECT * FROM users";
         try (Connection con = sql2o.open()) {
@@ -141,5 +151,7 @@ public class UserSQL implements UserDAO {
             System.out.println(ex);
         }
     }
+
+
 
 }

@@ -1,24 +1,28 @@
 {{#partial "content"}}
 
-    <div class="body"></div>
-    <div class="grad"></div>
-    <div class="content">
-        <div class="header">
-            <div><span>Dat Datting App Doe</span></div>
-        </div>
-        <div class="login">
-            <form class="login" action="/user/" method="post">
-                <input type="text" name="username" placeholder="Username">
-                <br>
-                <input type="password" name="password" placeholder="Password">
-                <br>
-                <input type="submit" value="Login">
-            </form>
-            <form class="account" action="/user/new" method="post">
-                <input id="accountButton" type="submit" value="Create Account">
-            </form>
-        </div>
-    </div>
 
+<div class="body"></div>
+<div class="grad"></div>
+<div class="content">
+    <div class="header">
+        <div><span>Neon</span></div><br>
+        <div><span id="connection">Connection</span></div>
+    </div>
+    <div class="login">
+        <form class="login" action="/user" method="post">
+            <input type="text" name="username" placeholder="Username">
+            <br>
+            <input type="password" name="password" placeholder="Password">
+            <br>
+            <input type="submit" value="Login">
+        </form>
+
+        <form class="account" action="/user/new" method="get">
+            <input id="accountButton" type="submit" value="Create Account">
+        </form>
+    </div>
+</div>
 {{/partial}}
+
+
 {{> layout.hbs}}

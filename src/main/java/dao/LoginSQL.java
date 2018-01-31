@@ -17,7 +17,7 @@ public class LoginSQL implements LoginDAO {
 
     @Override
     public void add(Login login){
-        String sql = "INSERT INTO logins (username, password, birthday) VALUES (:username, :password, :birthday)";
+        String sql = "INSERT INTO logins (userName, password, birthday) VALUES (:userName, :password, :birthday)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(login)
@@ -30,13 +30,24 @@ public class LoginSQL implements LoginDAO {
     }
 
     @Override
-    public Login findByUserLogin(String username, String password) {
-        String sql = "SELECT id FROM logins WHERE username = :username, password = :password";
+    public Integer getLoginId(String username, String password) {
+        String sql = "SELECT id FROM logins WHERE (username = :username AND password = :password)";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("username", username)
                     .addParameter("password", password)
+                    .executeAndFetchFirst(Integer.class);
+        }
+    }
+
+    @Override
+    public Login findById(int id) {
+        String sql = "SELECT * FROM logins WHERE id = :id";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
                     .executeAndFetchFirst(Login.class);
         }
     }
+
 }

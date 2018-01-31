@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+@import url('https://fonts.googleapis.com/css?family=Fascinate|Julius+Sans+One|Lobster');
 body{
 	margin: 0;
 	padding: 0;
@@ -12,7 +13,7 @@ body{
 }
 
 form{
-	background-color: rgba(117, 142, 141, 0.5);
+	background-color: rgba(117, 142, 141, 0.3);
 }
 
 .body{
@@ -23,7 +24,7 @@ form{
 	bottom: -40px;
 	width: auto;
 	height: auto;
-	background-image: url(https://static.pexels.com/photos/325520/pexels-photo-325520.jpeg);
+    background-image: url(http://ak9.picdn.net/shutterstock/videos/21398209/thumb/12.jpg);
 	background-size: cover;
 	z-index: 0;
 }
@@ -42,21 +43,30 @@ form{
 
 .header{
 	position: absolute;
-	top: calc(50% - 35px);
-	left: calc(50% - 255px);
+	top: calc(40% - 30px);
+	left: calc(50% - 300px);
 	z-index: 2;
 }
 
 .header div{
 	float: left;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
+	color: #000;
+	font-family: 'Fascinate', sans-serif;
 	font-size: 35px;
 	font-weight: 200;
 }
 
 .header div span{
-	color: #5379fa !important;
+	color: #fff !important;
+	text-shadow: 0px 0px 1px rgb(87, 249, 205);
+	font-size: 72px;
+      background: -webkit-linear-gradient(#eee, #333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+
+#connection{
+font-family: 'Exo', sans-serif;
 }
 
 .login{
@@ -82,13 +92,23 @@ form{
 
 #accountButton{
 	border: 1px solid lightgray;
+	width: 350px;
+    height: 40px;
+    background: rgb(87, 249, 205);
+    border: 1px solid rgb(87, 249, 205);
+    border-radius: 2px;
+    color: #lightgray;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
 }
 
-.login input[type=text]{
+input[type=text]{
 	width: 340px;
 	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
+	background: rgba(255,255,255,0.3);
+	border: 1px solid rgba(87, 249, 205,0.6);
 	border-radius: 2px;
 	color: #lightgray;
 	font-family: 'Exo', sans-serif;
@@ -97,11 +117,11 @@ form{
 	padding: 4px;
 }
 
-.login input[type=password]{
+input[type=password]{
 	width: 340px;
 	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
+	background: rgba(255,255,255,0.3);
+	border: 1px solid rgba(87, 249, 205,0.6);
 	border-radius: 2px;
 	color: #black;
 	font-family: 'Exo', sans-serif;
@@ -111,11 +131,11 @@ form{
 	margin-top: 10px;
 }
 
-.login input[type=button]{
+.login input[type=submit]{
 	width: 350px;
 	height: 35px;
-	background: #fff;
-	border: 1px solid #fff;
+	background: rgb(87, 249, 205);
+	border: 1px solid rgb(87, 249, 205);
 	cursor: pointer;
 	border-radius: 2px;
 	color: #a18d6c;
@@ -126,14 +146,16 @@ form{
 	margin-top: 10px;
 }
 
-.login input[type=button]:hover{
+.login input[type=submit]:hover{
 	opacity: 0.8;
 }
 
-.login input[type=button]:active{
+.login input[type=submit]:active{
 	opacity: 0.6;
 }
 
-.login input[type=button]:focus{
+.login input[type=submit]:focus{
 	outline: none;
 }
+
+

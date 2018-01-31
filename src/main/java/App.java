@@ -21,7 +21,7 @@ import static spark.Spark.staticFileLocation;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/dad.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/dad2.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         InterestSQL interestDao = new InterestSQL(sql2o);
         UserSQL userDao = new UserSQL(sql2o);
@@ -36,45 +36,73 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        //SHOW EXISTING USER AFTER LOGIN
+        //new account:
 
-
-
-        //NEW USER FORM/SIGN UP
         get("/user/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "sign-up.hbs");
         }, new HandlebarsTemplateEngine());
 
 
-
-        //PROCESS NEW USER
-        post("/user/new", (request, response)->{
+        post("/user/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            String userName = request.queryParams("userName");
+
+            String userName = request.queryParams("user-name");
             String password = request.queryParams("password");
             String birthday = request.queryParams("birthday");
-            Login newLogin = new Login(userName, password, birthday);
 
+            Login newLogin = new Login(userName, password, birthday);
+            loginDao.add(newLogin);
             int loginId = newLogin.getId();
+
             String name = request.queryParams("name");
             String gender = request.queryParams("gender");
-            String preference = request.queryParams("preference");
+            String preferredGender = request.queryParams("preference");
             String userTagLine = request.queryParams("userTagLine");
-            User newUser = new User(loginId, name, gender, preference);
 
+            User newUser = new User(loginId, name, gender, preferredGender, userTagLine);
             userDao.add(newUser);
-            model.put("user", newUser);
+
+            model.put("user", userDao.findById(newUser.getId()));
+            model.put("login", loginDao.findById(newLogin.getId()));
+
             return new ModelAndView(model, "welcome.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //UPDATE USER/EXPAND PROFILE
+        //
 
-        //SHOW ALL USERS BY PREFERENCE
+        //personal info page
+        get("/user/:user_id/profile", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
 
-        //SHOW A SELECTED USER'S PROFILE
+            User user = userDao.findById(Integer.parseInt(request.params("user_id")));
+            model.put("user", user);
 
-        //LIKE A SELECTED USER
+            int login_id = user.getLoginId();
+            Login login = loginDao.findById(login_id);
+            model.put("login", login);
+
+            return new ModelAndView(model, "profile.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //log in:
+        post("/user", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+
+            String userName = request.queryParams("username");
+            String password = request.queryParams("password");
+
+            int login_id = loginDao.getLoginId(userName, password);
+            User user = userDao.findUserByLoginId(login_id);
+
+            model.put("user", user);
+
+            return new ModelAndView(model, "welcome.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        // haven't checked yet:
 
         //SEARCH FOR A POTENTIAL MATCH
         get("/profile/:user_id/search", (request, response) -> {
@@ -115,6 +143,16 @@ public class App {
             model.put("profile", profile);
 
             return new ModelAndView(model, "profile.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //DELETE PROFILE
+
+        get("/user/:user_id/delete", (request, response)-> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfUser = Integer.parseInt(request.params("userId"));
+            User deleteUser = userDao.findById(idOfUser);
+            return new ModelAndView(model, "goodbye.hbs");
         }, new HandlebarsTemplateEngine());
 
     }

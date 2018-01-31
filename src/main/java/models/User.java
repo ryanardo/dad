@@ -18,6 +18,14 @@ public class User {
         this.userTagLine = userTagLine;
     }
 
+    public User(int loginId, String realName, String gender, String preferredGender, String userTagLine) {
+        this.loginId = loginId;
+        this.realName = realName;
+        this.gender = gender;
+        this.preferredGender = preferredGender;
+        this.userTagLine = userTagLine;
+    }
+
     public User(String realName, String gender, String userTagLine) {
         this.realName = realName;
         this.gender = gender;
@@ -25,14 +33,6 @@ public class User {
     }
 
     public User(String realName, String gender, String preferredGender, String userTagLine) {
-        this.realName = realName;
-        this.gender = gender;
-        this.preferredGender = preferredGender;
-        this.userTagLine = userTagLine;
-    }
-
-    public User(int loginId, String realName, String gender, String preferredGender, String userTagLine) {
-        this.loginId = loginId;
         this.realName = realName;
         this.gender = gender;
         this.preferredGender = preferredGender;
