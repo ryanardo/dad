@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
-@import url('https://fonts.googleapis.com/css?family=Fascinate|Julius+Sans+One|Lobster');
+@import url('https://fonts.googleapis.com/css?family=Fascinate|Julius+Sans+One|Lobster|Yellowtail|Monoton');
 body{
 	margin: 0;
 	padding: 0;
@@ -24,7 +24,7 @@ form{
 	bottom: -40px;
 	width: auto;
 	height: auto;
-    background-image: url(http://ak9.picdn.net/shutterstock/videos/21398209/thumb/12.jpg);
+    background-image: url(https://i.imgur.com/L1KaXjH.jpg);
 	background-size: cover;
 	z-index: 0;
 }
@@ -42,37 +42,36 @@ form{
 }
 
 .header{
+  text-align: left;
 	position: absolute;
-	top: calc(40% - 30px);
-	left: calc(50% - 300px);
+	top: calc(45% - 30px);
+	left: calc(40% - 300px);
 	z-index: 2;
 }
 
 .header div{
 	float: left;
 	color: #000;
-	font-family: 'Fascinate', sans-serif;
+	font-family: 'Monoton', sans-serif;
 	font-size: 35px;
 	font-weight: 200;
 }
 
 .header div span{
 	color: #fff !important;
-	text-shadow: 0px 0px 1px rgb(87, 249, 205);
+	text-shadow: 0px 0px 15px rgb(249, 137, 238);
 	font-size: 72px;
-      background: -webkit-linear-gradient(#eee, #333);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
 }
 
 #connection{
-font-family: 'Exo', sans-serif;
+font-family: 'Monoton', sans-serif;
 }
 
-.login{
+.card{
 	position: absolute;
+	background-color: rgba(255,255,255, 0.3);
 	top: calc(50% - 75px);
-	left: calc(50% - 50px);
+	left: calc(55%);
 	height: 140px;
 	width: 350px;
 	padding: 10px;
@@ -82,7 +81,7 @@ font-family: 'Exo', sans-serif;
 .account{
 	position: absolute;
 	top: calc(100%);
-	left: calc(50% - 50px);
+	left: calc(0px);
 	height: 140px;
 	width: 350px;
 	padding: 10px;
@@ -94,10 +93,10 @@ font-family: 'Exo', sans-serif;
 	border: 1px solid lightgray;
 	width: 350px;
     height: 40px;
-    background: rgb(87, 249, 205);
-    border: 1px solid rgb(87, 249, 205);
+    background: rgb(249, 137, 238);
+    border: 1px solid rgb(249, 137, 238);
     border-radius: 2px;
-    color: #lightgray;
+    color: #fff;
     font-family: 'Exo', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -107,8 +106,8 @@ font-family: 'Exo', sans-serif;
 input[type=text]{
 	width: 340px;
 	height: 30px;
-	background: rgba(255,255,255,0.3);
-	border: 1px solid rgba(87, 249, 205,0.6);
+	background: rgba(255,255,255,0.4);
+	border: 1px solid rgba(249, 137, 238,0.6);
 	border-radius: 2px;
 	color: #lightgray;
 	font-family: 'Exo', sans-serif;
@@ -120,8 +119,8 @@ input[type=text]{
 input[type=password]{
 	width: 340px;
 	height: 30px;
-	background: rgba(255,255,255,0.3);
-	border: 1px solid rgba(87, 249, 205,0.6);
+	background: rgba(255,255,255,0.4);
+	border: 1px solid rgba(249, 137, 238,0.6);
 	border-radius: 2px;
 	color: #black;
 	font-family: 'Exo', sans-serif;
@@ -131,14 +130,14 @@ input[type=password]{
 	margin-top: 10px;
 }
 
-.login input[type=submit]{
+input[type=submit]{
 	width: 350px;
 	height: 35px;
-	background: rgb(87, 249, 205);
-	border: 1px solid rgb(87, 249, 205);
+	background: rgb(249, 137, 238);
+	border: 1px solid rgb(249, 137, 238);
 	cursor: pointer;
 	border-radius: 2px;
-	color: #a18d6c;
+	color: #fff;
 	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
@@ -157,5 +156,3 @@ input[type=password]{
 .login input[type=submit]:focus{
 	outline: none;
 }
-
-
