@@ -1,14 +1,17 @@
 {{#partial "content"}}
 
+<link rel='stylesheet' href='/app.css'>
+</head>
+<body>
 
 <div class="body"></div>
 <div class="grad"></div>
 <div class="content">
     <div class="header">
-        <div><span>Neon</span></div><br>
+        <div><span id="neon">Neon</span></div><br>
         <div><span id="connection">Connection</span></div>
     </div>
-    <div class="login">
+    <div class="card">
         <form class="login" action="/user" method="post">
             <input type="text" name="username" placeholder="Username">
             <br>
