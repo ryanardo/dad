@@ -309,7 +309,9 @@ public class App {
             userDao.deleteById(idOfUser);
 
             int login_id = user.getLoginId();
-            loginDao.delete(login_id);
+            loginDao.deleteLogin(login_id);
+
+            userDao.deleteUserLikes(idOfUser);
 
             return new ModelAndView(model, "goodbye.hbs");
         }, new HandlebarsTemplateEngine());

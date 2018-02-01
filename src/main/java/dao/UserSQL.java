@@ -193,6 +193,16 @@ public class UserSQL implements UserDAO {
         }
     }
 
-
+    @Override
+    public void deleteUserLikes(int id) {
+        String sql = "DELETE FROM users_likes WHERE (userId = :id) OR (likedId = :id)";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 
 }
