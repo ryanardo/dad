@@ -105,7 +105,7 @@ public class UserSQL implements UserDAO {
                         .executeAndFetch(User.class);
             }
         } else {
-            String sql = "SELECT * FROM users WHERE (gender = :preferredGender AND preferredGender = :gender AND id != :id)";
+            String sql = "SELECT * FROM users WHERE (gender = :preferredGender AND (preferredGender = :gender OR preferredGender = 'noPref') AND id != :id)";
             try (Connection con = sql2o.open()) {
                 return con.createQuery(sql)
                         .addParameter("preferredGender", user.getPreferredGender())
