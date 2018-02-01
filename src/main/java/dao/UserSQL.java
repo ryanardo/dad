@@ -33,14 +33,33 @@ public class UserSQL implements UserDAO {
 
     @Override
     public void addLike(int userId, int likedId) {
-        String sql = "INSERT INTO users_likes (userId, likedId) VALUES (:userId, :likedId)";
+        if (!likeExists(userId, likedId)) {
+
+            String sql = "INSERT INTO users_likes (userId, likedId) VALUES (:userId, :likedId)";
+            try (Connection con = sql2o.open()) {
+                con.createQuery(sql)
+                        .addParameter("userId", userId)
+                        .addParameter("likedId", likedId)
+                        .executeUpdate();
+            } catch (Sql2oException ex) {
+                System.out.println(ex);
+            }
+        } else {}
+    }
+
+    public boolean likeExists(int userId, int likedId) {
+        List<Integer> likesIds;
+        String sql = "SELECT id FROM users_likes WHERE userId = :userId AND likedId = :likedId";
         try (Connection con = sql2o.open()) {
-            con.createQuery(sql)
+            likesIds = con.createQuery(sql)
                     .addParameter("userId", userId)
                     .addParameter("likedId", likedId)
-                    .executeUpdate();
-        } catch (Sql2oException ex) {
-            System.out.println(ex);
+                    .executeAndFetch(Integer.class);
+        }
+        if (likesIds.size() != 0) {
+            return true;
+        } else {
+            return false;
         }
     }
 

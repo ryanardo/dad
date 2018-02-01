@@ -212,7 +212,7 @@ public class App {
             int user_id = Integer.parseInt(request.params("user_id"));
             int profile_id = Integer.parseInt(request.params("profile_id"));
 
-            userDao.addLike(user_id, profile_id);
+            userDao.addLike(user_id, profile_id); // ADDING A LIKE
 
 
             User user = userDao.findById(user_id);
