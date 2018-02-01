@@ -12,31 +12,28 @@ body{
 	font-size: 12px;
 }
 
-form{
-	background-color: rgba(117, 142, 141, 0.3);
-}
+
 
 body{
-	position: absolute;
 	top: -20px;
 	left: -20px;
 	right: -40px;
 	bottom: -40px;
 	width: auto;
-	height: auto;
-    background-color: #000;
-    background-image: url(http://pa1.narvii.com/6708/ab63b39441d5d5943d19b6784a236822a4e627fc_00.gif);
+	height: 100%;
+  background-color: #000;
+  background-image: url(http://pa1.narvii.com/6708/ab63b39441d5d5943d19b6784a236822a4e627fc_00.gif);
 	background-size: cover;
 	background-repeat: no-repeat;
-	z-index: 0;
+	overflow: hidden;
+	background-position: top-center;
 }
+
 h1{
   color: #d100b1;
   display: block;
   font-family: 'Yellowtail', cursive;
   font-size: 150px;
-  margin-right: -8em;
-  position: absolute;
   text-shadow: 0 0 1px #d100b1, 0 -3px 3px rgba(255, 255, 255, 0.8), 0 3px 3px rgba(0, 0, 0, 0.5), 0 0 15px #d100b1, 0 0 45px rgba(209, 0, 177, 0.8);
   text-align: center;
   text-decoration: underline;
@@ -44,12 +41,12 @@ h1{
   -webkit-transform: skew(-10deg) rotate(-10deg);
   -ms-transform: skew(-10deg) rotate(-10deg);
   transform: skew(-10deg) rotate(-10deg);
-  top: 41px;
+  top: 50%;
   width: 100%;
-  z-index: 11;
   }
-#signUp{
+.signUp{
     padding: 10px;
+    background: rgba(0,0,0,0.4);
     }
 .grad{
 	position: absolute;
@@ -59,7 +56,6 @@ h1{
 	bottom: -40px;
 	width: auto;
 	height: auto;
-	z-index: 1;
 	opacity: 0.7;
 }
 
@@ -68,8 +64,8 @@ h1{
 	position: absolute;
 	top: calc(50% - 30px);
 	left: calc(40% - 300px);
-	z-index: 2;
 	line-height: 500%;
+	float: left;
 }
 
 .welcome{
@@ -126,7 +122,6 @@ font-family: 'Monoton', sans-serif;
 	height: 140px;
 	width: 350px;
 	padding: 10px;
-	z-index: 2;
 }
 
 .account{
@@ -136,7 +131,6 @@ font-family: 'Monoton', sans-serif;
 	height: 140px;
 	width: 350px;
 	padding: 10px;
-	z-index: 2;
 	background: none;
 }
 
@@ -167,7 +161,24 @@ border: 1px solid lightgray;
     font-size: 16px;
     font-weight: 400;
     padding: 4px;
+		opacity: 50%;
 }
+
+.updateForm .deleteForm{
+    background: rgba(0,0,0,0);
+}
+
+.bold{
+	font-weight: bold;
+	font-size: 1.5em;
+}
+.profilePic{
+    width: 40%;
+    height: 40%;
+    float: left;
+    margin-right: 5%;
+    border-radius: 10%;
+    }
 
 
 input[type=text]{
@@ -182,10 +193,7 @@ input[type=text]{
 	font-weight: 400;
 	padding: 4px;
 }
-.profilePic{
-    width: 30%;
-    height: 30%;
-    }
+
 
 input[type=password]{
 	width: 340px;

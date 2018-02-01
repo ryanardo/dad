@@ -1,13 +1,16 @@
 {{#partial "title"}}update.hbs{{/partial}}
 
 {{#partial "content"}}
-        <form actions="/user/new" method="post">
+        <form class="signUp" actions="/user/new" method="post">
 
             <label for="name">Name:</label>
             <input id="name" name="name" type="text" placeholder="First Last">
             <br>
             <label for="profilePic">Profile Pic:</label>
-            <input id="profilePic" name="profilePic" type="text" placeholder="add picture URL">
+            <input id="profilePic" name="profilePic" type="text" placeholder="Paste picture URL">
+            <br>
+            <a href="https://imgur.com/upload" target="_blank">Generate image url using Imgur</a>
+            <br>
             <br>
             <label for="userTagLine">Tag Line:</label>
             <input id="userTagLine" name="userTagLine" type="text" placeholder="Describe yourself">
@@ -22,45 +25,78 @@
             <input id="location" name="location" type="text">
             <br>
             <label for="sign">Astrological Sign:</label>
-            <select id="sign" name="sign">
-                <option value="Capricorn">Capricorn (Dec 22-Jan 19)</option>
-                <option value="Aquarius">Aquarius (Jan 20-Feb 18)</option>
-                <option value="Pisces">Pisces (Feb 19-Mar 20)</option>
-                <option value="Aries">Aries (Mar 21-Apr 19)</option>
-                <option value="Taurus">Taurus (Apr 20-May 20)</option>
-                <option value="Gemini">Gemini (May 21-Jun 20)</option>
-                <option value="Cancer">Cancer (Jun 21-Jul 22)</option>
-                <option value="Leo">Leo (Jul 23-Aug 22)</option>
-                <option value="Virgo">Virgo (Aug 23-Sep 22)</option>
-                <option value="Libra">Libra (Sep 23-Oct 22)</option>
-                <option value="Scorpio">Scorpio (Oct 23-Nov 21)</option>
-                <option value="Sagittarius">Sagittarius (Nov 22-Dec 21)</option>
-            </select>
+            <div class="row">
+                <div class="col s3">
+                    <input value="Capricorn" name="sign" type="radio" id="Capricorn" />
+                    <label for="Capricorn">♑ Capricorn (Dec 22-Jan 19)</label>
+
+                    <input value="Aquarius" name="sign" type="radio" id="Aquarius" />
+                    <label for="Aquarius">♒ Aquarius (Jan 20-Feb 18)</label>
+
+                    <input value="Pisces" name="sign" type="radio" id="Pisces" />
+                    <label for="Pisces">♓ Pisces (Feb 19-Mar 20)</label>
+                </div>
+                <div class="col s3">
+                    <input value="Aries" name="sign" type="radio" id="Aries" />
+                    <label for="Aries">♈ Aries (Mar 21-Apr 19)</label>
+
+                    <input value="Taurus" name="sign" type="radio" id="Taurus" />
+                    <label for="Taurus">♉ Taurus (Apr 20-May 20)</label>
+
+                    <input value="Gemini" name="sign" type="radio" id="Gemini" />
+                    <label for="Gemini">♊ Gemini (May 21-Jun 20)</label>
+                </div>
+                <div class="col s3">
+                    <input value="Cancer" name="sign" type="radio" id="Cancer" />
+                    <label for="Cancer">♋ Cancer (Jun 21-Jul 22)</label>
+
+                    <input value="Leo" name="sign" type="radio" id="Leo" />
+                    <label for="Leo">♌ Leo (Jul 23-Aug 22)</label>
+
+                    <input value="Virgo" name="sign" type="radio" id="Virgo" />
+                    <label for="Virgo">♍ Virgo (Aug 23-Sep 22)</label>
+                </div>
+                <div class="col s3">
+                    <input value="Libra" name="sign" type="radio" id="Libra" />
+                    <label for="Libra">♎ Libra (Sep 23-Oct 22)</label>
+
+                    <input value="Scorpio" name="sign" type="radio" id="Scorpio" />
+                    <label for="Scorpio">♏ Scorpio (Oct 23-Nov 21)</label>
+
+                    <input value="Sagittarius" name="sign" type="radio" id="Sagittarius" />
+                    <label for="Sagittarius">♐ Sagittarius (Nov 22-Dec 21)</label>
+                </div>
+            </div>
+
             <br>
+
             <label for="job">Career:</label>
             <input id="job" name="job" type="text">
             <br>
+
             <label for="kids">Do you want children?</label>
             <select id="kids" name="kids">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
             <br>
-            <label for="gender">I am a:</label>
-            <input value="male" name="gender" type="radio" id="iAmMan" />
-            <label for="iAmMan">Man</label>
+
+            <H4 for="gender">I am a:</H4>
             <input value="female" name="gender" type="radio" id="iAmWoman" />
-            <label for="iAmWoman">Woman</label>
+            <label for="iAmWoman">♀ Woman</label>
+            <input value="male" name="gender" type="radio" id="iAmMan" />
+            <label for="iAmMan">♂ Man</label>
             <input value="other" name="gender" type="radio" id="iAmOther" />
-            <label for="iAmOther">Other</label>
+            <label for="iAmOther">⚥ Other</label>
             <br>
-            <label for="preference">Interested in:</label>
+
+            <H4 for="preference">Interested in:</H4>
             <input value="male" name="preference" type="radio" id="lookingForMan" />
-            <label for="lookingForMan">Man</label>
+            <label for="lookingForMan">♂ Man</label>
             <input value="female" name="preference" type="radio" id="lookingForWoman" />
-            <label for="lookingForWoman">Woman</label>
+            <label for="lookingForWoman">♀ Woman</label>
             <input value="other" name="preference" type="radio" id="lookingForOther" />
-            <label for="lookingForOther">Other</label>
+            <label for="lookingForOther">⚥ Other</label>
             <br>
 
             <label for="email">Contact Email:</label>
@@ -70,7 +106,18 @@
             <label for="phone">Contact Phone Number:</label>
             <input id="phone" name="phone" type="text">
             <br>
-            <button type="submit" class="btn btn-default purple">Sign Up!</button>
+            <!--<button type="submit" class="btn btn-default purple">Sign Up!</button>-->
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="user-name" name="user-name" type="text" placeholder="Username">
+                </div>
+                <div class="input-field col s6">
+                    <input id="password" name="password" type="password" placeholder="Password">
+                </div>
+                <br>
+            </div>
+            <button type="submit" class="btn btn-default purple">Update</button>
         </form>
 {{/partial}}
 {{> layout.hbs}}

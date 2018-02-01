@@ -2,7 +2,7 @@
 
 {{#partial "content"}}
 
-    <form id="signUp" actions="/user/new" method="post">
+    <form class="signUp" actions="/user/new" method="post">
         <label for="name">Name:</label>
         <input id="name" name="name" type="text" placeholder="First Last">
         <br>
@@ -36,7 +36,6 @@
                 <input value="Pisces" name="sign" type="radio" id="Pisces" />
                 <label for="Pisces">♓ Pisces (Feb 19-Mar 20)</label>
             </div>
-
             <div class="col s3">
                 <input value="Aries" name="sign" type="radio" id="Aries" />
                 <label for="Aries">♈ Aries (Mar 21-Apr 19)</label>
@@ -69,6 +68,7 @@
             </div>
         </div>
 
+        <br>
 
         <label for="job">Career:</label>
         <input id="job" name="job" type="text">
@@ -81,7 +81,7 @@
         </select>
         <br>
 
-        <H2 for="gender">I am a:</H2>
+        <H4 for="gender">I am a:</H4>
         <input value="female" name="gender" type="radio" id="iAmWoman" />
         <label for="iAmWoman">♀ Woman</label>
         <input value="male" name="gender" type="radio" id="iAmMan" />
