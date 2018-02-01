@@ -169,7 +169,6 @@ public class App {
 
             List<User> users = userDao.matchingGender(user);
 
-
             String gender = getGenderString(user.getGender());
             String preferredGender = getPreferredGenderString(user.getPreferredGender());
 
