@@ -22,7 +22,7 @@
 </nav>
 <div class="container">
 
-    <form actions="/user/new" method="post">
+    <form id="signUp" actions="/user/new" method="post">
 
         <label for="name">Name:</label>
         <input id="name" name="name" type="text" placeholder="First Last">
@@ -69,7 +69,53 @@
         <br>
 
         <label for="sign">Astrological Sign:</label>
+        <div class="row">
+        <div class="col s3">
+        <input value="Capricorn" name="sign" type="radio" id="Capricorn" />
+        <label for="Capricorn">♑ Capricorn (Dec 22-Jan 19)</label>
+
+        <input value="Aquarius" name="sign" type="radio" id="Aquarius" />
+        <label for="Aquarius">♒ Aquarius (Jan 20-Feb 18)</label>
+
+        <input value="Pisces" name="sign" type="radio" id="Pisces" />
+        <label for="Pisces">♓ Pisces (Feb 19-Mar 20)</label>
+        </div>
+
+        <div class="col s3">
+        <input value="Aries" name="sign" type="radio" id="Aries" />
+        <label for="Aries">♈ Aries (Mar 21-Apr 19)</label>
+
+        <input value="Taurus" name="sign" type="radio" id="Taurus" />
+        <label for="Taurus">♉ Taurus (Apr 20-May 20)</label>
+
+        <input value="Gemini" name="sign" type="radio" id="Gemini" />
+        <label for="Gemini">♊ Gemini (May 21-Jun 20)</label>
+        </div>
+        <div class="col s3">
+        <input value="Cancer" name="sign" type="radio" id="Cancer" />
+        <label for="Cancer">♋ Cancer (Jun 21-Jul 22)</label>
+
+        <input value="Leo" name="sign" type="radio" id="Leo" />
+        <label for="Leo">♌ Leo (Jul 23-Aug 22)</label>
+
+        <input value="Virgo" name="sign" type="radio" id="Virgo" />
+        <label for="Virgo">♍ Virgo (Aug 23-Sep 22)</label>
+        </div>
+        <div class="col s3">
+        <input value="Libra" name="sign" type="radio" id="Libra" />
+        <label for="Libra">♎ Libra (Sep 23-Oct 22)</label>
+
+        <input value="Scorpio" name="sign" type="radio" id="Scorpio" />
+        <label for="Scorpio">♏ Scorpio (Oct 23-Nov 21)</label>
+
+        <input value="Sagittarius" name="sign" type="radio" id="Sagittarius" />
+        <label for="Sagittarius">♐ Sagittarius (Nov 22-Dec 21)</label>
+        </div>
+        </div>
+
         <select id="sign" name="sign">
+
+
             <option value="Capricorn">Capricorn (Dec 22-Jan 19)</option>
             <option value="Aquarius">Aquarius (Jan 20-Feb 18)</option>
             <option value="Pisces">Pisces (Feb 19-Mar 20)</option>
@@ -98,35 +144,33 @@
 
         <label for="gender">I am a:</label>
         <!--<form id="gender" name="gender">-->
-            <input value="male" name="gender" type="radio" id="iAmWoman" />
-            <label for="iAmWoman">Woman</label>
-            <input value="female" name="gender" type="radio" id="iAmMan" />
-            <label for="iAmMan">Man</label>
+            <input value="female" name="gender" type="radio" id="iAmWoman" />
+            <label for="iAmWoman">♀ Woman</label>
+            <input value="male" name="gender" type="radio" id="iAmMan" />
+            <label for="iAmMan">♂ Man</label>
             <input value="other" name="gender" type="radio" id="iAmOther" />
-            <label for="iAmOther">Other</label>
+            <label for="iAmOther">⚥ Other</label>
         <!--</form>-->
         <br>
         <label for="preference">Interested in:</label>
         <!--<form id="perference" name="perference">-->
             <input value="male" name="preference" type="radio" id="lookingForMan" />
-            <label for="lookingForMan">Woman</label>
+            <label for="lookingForMan">♀ Woman</label>
 
             <input value="female" name="preference" type="radio" id="lookingForWoman" />
-            <label for="lookingForWoman">Man</label>
+            <label for="lookingForWoman">♂ Man</label>
 
             <input value="other" name="preference" type="radio" id="lookingForOther" />
-            <label for="lookingForOther">Other</label>
+            <label for="lookingForOther">⚥ Other</label>
         <!--</form>-->
         <br>
         <div class="row">
             <div class="input-field col s6">
 
-        <label for="user-name">Username:</label>
-        <input id="user-name" name="user-name" type="text">
+        <input id="user-name" name="user-name" type="text" placeholder="Username">
     </div>
     <div class="input-field col s6">
-        <label for="password">Password:</label>
-        <input id="password" name="password" type="password">
+        <input id="password" name="password" type="password" placeholder="Password">
     </div>
         <br>
 </div>
