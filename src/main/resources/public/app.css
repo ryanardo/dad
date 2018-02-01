@@ -25,12 +25,15 @@ body{
 	width: auto;
 	height: auto;
     background-color: #000;
-    background-image: url(https://data.whicdn.com/images/197687411/original.gif);
+    background-image: url(http://pa1.narvii.com/6708/ab63b39441d5d5943d19b6784a236822a4e627fc_00.gif);
 	background-size: cover;
 	background-repeat: no-repeat;
 	z-index: 0;
 }
 
+#signUp{
+    padding: 10px;
+    }
 .grad{
 	position: absolute;
 	top: -20px;
