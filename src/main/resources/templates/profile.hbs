@@ -13,6 +13,8 @@
             <p>Astrological Sign: {{user.sign}}</p>
             <p>Job: {{user.job}}</p>
             <p>Do you want to have children? {{user.kids}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Phone Number: {{user.phone}}</p>
 
             <form class="update" action="/profile/{{user.id}}/update" method="get">
                 <input class="update" type="submit" value="Update">

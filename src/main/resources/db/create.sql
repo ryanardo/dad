@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS users (
   job VARCHAR,
   kids VARCHAR,
   profilePic VARCHAR,
+  email VARCHAR,
+  phone VARCHAR,
   --foreign keys
   loginId INTEGER
 );

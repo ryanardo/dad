@@ -19,7 +19,7 @@ public class UserSQL implements UserDAO {
   /* CREATE * * * * * * * * * * */
     @Override
     public void add(User user) {
-        String sql = "INSERT INTO users (loginId, realName, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic) VALUES (:loginId, :realName, :gender, :preferredGender, :userTagLine, :age, :location, :sign, :job, :kids, :profilePic)";
+        String sql = "INSERT INTO users (loginId, realName, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic, email, phone) VALUES (:loginId, :realName, :gender, :preferredGender, :userTagLine, :age, :location, :sign, :job, :kids, :profilePic, :email, :phone)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(user)
@@ -137,8 +137,8 @@ public class UserSQL implements UserDAO {
 
     /* UPDATE * * * * * * * * * * */
     @Override
-    public void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic) {
-        String sql = "UPDATE users SET realName = :realName, gender = :gender, preferredGender = :preferredGender, userTagLine = :userTagLine, age = :age, location = :location, sign = :sign, job = :job, kids = :kids, profilePic = :profilePic WHERE id = :id";
+    public void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic, String email, String phone) {
+        String sql = "UPDATE users SET realName = :realName, gender = :gender, preferredGender = :preferredGender, userTagLine = :userTagLine, age = :age, location = :location, sign = :sign, job = :job, kids = :kids, profilePic = :profilePic, email = :email, phone = :phone WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
@@ -152,6 +152,8 @@ public class UserSQL implements UserDAO {
                     .addParameter("job", job)
                     .addParameter("kids", kids)
                     .addParameter("profilePic", profilePic)
+                    .addParameter("email", email)
+                    .addParameter("phone", phone)
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println(ex);

@@ -59,7 +59,7 @@ public class App {
 
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/dad7.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/dad8.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         InterestSQL interestDao = new InterestSQL(sql2o);
         UserSQL userDao = new UserSQL(sql2o);
@@ -103,8 +103,10 @@ public class App {
             String job = request.queryParams("job");
             String kids = request.queryParams("kids");
             String profilePic = request.queryParams("profilePic");
+            String email = request.queryParams("email");
+            String phone = request.queryParams("phone");
 
-            User newUser = new User(loginId, name, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic);
+            User newUser = new User(loginId, name, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic, email, phone);
             userDao.add(newUser);
 
             model.put("user", userDao.findById(newUser.getId()));
@@ -272,12 +274,14 @@ public class App {
             String job = request.queryParams("job");
             String kids = request.queryParams("kids");
             String profilePic = request.queryParams("profilePic");
+            String email = request.queryParams("email");
+            String phone = request.queryParams("phone");
 
             int user_id = Integer.parseInt(request.params("user_id"));
 
             User user = userDao.findById(user_id);
 
-            userDao.updateUser(user_id, name, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic);
+            userDao.updateUser(user_id, name, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic, email, phone);
 
             model.put("user", userDao.findById(user_id));
             model.put("login", loginDao.findById(user.getLoginId()));
