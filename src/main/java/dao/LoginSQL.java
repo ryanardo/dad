@@ -49,7 +49,7 @@ public class LoginSQL implements LoginDAO {
     }
 
     @Override
-    public void delete(int id) {
+    public void deleteLogin(int id) {
         String sql = "DELETE FROM logins WHERE id = :id";
         try (Connection con = sql2o.open()) {
              con.createQuery(sql)
