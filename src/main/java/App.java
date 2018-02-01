@@ -170,11 +170,11 @@ public class App {
             List<User> users = userDao.matchingGender(user);
 
 
-            String gender = getGenderString(user.getGender());
-            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+//            String gender = getGenderString(user.getGender());
+//            String preferredGender = getPreferredGenderString(user.getPreferredGender());
 
-            model.put("cGender", gender);
-            model.put("cPreferredGender", preferredGender);
+//            model.put("cGender", gender);
+//            model.put("cPreferredGender", preferredGender);
             model.put("user", user);
             model.put("users", users);
             model.put("size", users.size());
@@ -194,8 +194,8 @@ public class App {
             User profile = userDao.findById(profile_id);
 
 
-            String gender = getGenderString(user.getGender());
-            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+            String gender = getGenderString(profile.getGender());
+            String preferredGender = getPreferredGenderString(profile.getPreferredGender());
 
             model.put("gender", gender);
             model.put("preferredGender", preferredGender);
@@ -222,8 +222,8 @@ public class App {
             model.put("user", user);
             model.put("profile", profile);
 
-            String gender = getGenderString(user.getGender());
-            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+            String gender = getGenderString(profile.getGender());
+            String preferredGender = getPreferredGenderString(profile.getPreferredGender());
 
             model.put("gender", gender);
             model.put("preferredGender", preferredGender);
@@ -240,15 +240,15 @@ public class App {
             User user = userDao.findById(user_id);
             List<User> matches = userDao.getMatchedPairs(user);
 
-            String gender = getGenderString(user.getGender());
-            String preferredGender = getPreferredGenderString(user.getPreferredGender());
+//            String gender = getGenderString(user.getGender());
+//            String preferredGender = getPreferredGenderString(user.getPreferredGender());
 
             model.put("matches", matches);
             model.put("size", matches.size());
             model.put("user", user);
             model.put("our_user", user);
-            model.put("cGender", gender);
-            model.put("cPreferredGender", preferredGender);
+//            model.put("cGender", gender);
+//            model.put("cPreferredGender", preferredGender);
 
             return new ModelAndView(model, "matches.hbs");
         }, new HandlebarsTemplateEngine());
