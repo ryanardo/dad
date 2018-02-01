@@ -73,7 +73,8 @@ h1{
 }
 
 .welcome{
-top: calc(40% - 100px);
+    top: calc(40% - 100px);
+    left: calc(50%);
 }
 
 .nav-wrapper{

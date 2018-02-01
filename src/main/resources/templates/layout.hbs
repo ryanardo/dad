@@ -8,34 +8,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    {{#block "materialize"}}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">{{/block}}
     <link rel='stylesheet' href='/app.css'>
-    </head>
+</head>
+
 <body>
+{{#block "nav"}}
     <nav>
         <div class="nav-wrapper purple">
-          <a href="/" class="brand-logo center">Neon</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a href="/" class="brand-logo center">Neon</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="sass.html"><i class="material-icons">home</i></a></li>
-              <li><a href="badges.html"><i class="material-icons">search</i></a></li>
-              <li><a href="collapsible.html">Matches</a></li>
-              <li><a href="mobile.html">Logout</a></li>
+                <li><a href="/user/{{user.id}}/profile"><i class="material-icons">home</i></a></li>
+                <li><a href="/profile/{{user.id}}/search"><i class="material-icons">search</i></a></li>
+                <li><a href="/profile/{{user.id}}/matches">Matches</a></li>
+                <li><a href="/">Logout</a></li>
             </ul>
-      </div>
+        </div>
     </nav>
-{{#block "content"}}
-
-
-
-        {{/block}}
-    </div>
-
-</div>
-{{#block "footer"}}
-        <footer>
-        </footer>
-    </body>
-</html>
-
 {{/block}}
+
+<div class="container">
+    {{#block "content"}}
+    {{/block}}
+</div>
+
+</body>
+
+<footer>
+    {{#block "footer"}}
+    {{/block}}
+</footer>
+</html>
