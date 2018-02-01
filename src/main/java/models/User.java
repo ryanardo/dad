@@ -16,6 +16,13 @@ public class User {
     private String kids;
 
     /* CONSTRUCTORS * * * * * * * * * * */
+
+    public User(String realName, String gender, String preferredGender) {
+        this.realName = realName;
+        this.gender = gender;
+        this.preferredGender = preferredGender;
+    }
+
     public User(int loginId, String realName, String gender, String userTagLine) {
         this.loginId = loginId;
         this.realName = realName;

@@ -39,6 +39,14 @@ CREATE TABLE IF NOT EXISTS users_likes (
   likedId  INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS messages (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  --foreign keys
+  senderId  INTEGER,
+  receiverId  INTEGER,
+  content VARCHAR
+);
+
 CREATE TABLE IF NOT EXISTS jobs (
   id INT PRIMARY KEY AUTO_INCREMENT,
   job VARCHAR,
