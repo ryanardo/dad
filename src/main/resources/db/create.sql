@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS users (
 --PROFILE INFO------------------------------------------------
 CREATE TABLE IF NOT EXISTS profiles (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  profilePicture VARCHAR,
+  profilePic VARCHAR,
   aboutMe VARCHAR,
   --foreign keys
   userId INTEGER
