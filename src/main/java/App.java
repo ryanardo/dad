@@ -169,12 +169,6 @@ public class App {
 
             List<User> users = userDao.matchingGender(user);
 
-
-//            String gender = getGenderString(user.getGender());
-//            String preferredGender = getPreferredGenderString(user.getPreferredGender());
-
-//            model.put("cGender", gender);
-//            model.put("cPreferredGender", preferredGender);
             model.put("user", user);
             model.put("users", users);
             model.put("size", users.size());
