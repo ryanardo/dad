@@ -11,16 +11,19 @@
             <div class="col s6">
                 <h2>{{login.userName}}</h2>
 
-                <p><span class="bold">Name: </span>{{user.realName}}</p>
-                <p>{{user.userTagLine}}</p>
-                <p><span class="bold">Gender: </span>{{gender}}</p>
-                <p><span class="bold">Seeking: </span>{{preferredGender}}</p>
-                <p><span class="bold">Birthday: </span>{{login.birthday}}</p>
-                <p><span class="bold">Age: </span>{{user.age}}</p>
-                <p><span class="bold">Location: </span>{{user.location}}</p>
-                <p><span class="bold">Astrological Sign: </span>{{user.sign}}</p>
-                <p><span class="bold">Job: </span>{{user.job}}</p>
-                <p><span class="bold">Do you want to have children? </span>{{user.kids}}</p>
+            <p><span class="bold">Name: </span>{{user.realName}}</p>
+            <p>{{user.userTagLine}}</p>
+            <p><span class="bold">Gender: </span>{{gender}}</p>
+            <p><span class="bold">Seeking: </span>{{preferredGender}}</p>
+            <p><span class="bold">Birthday: </span>{{login.birthday}}</p>
+            <p><span class="bold">Age: </span>{{user.age}}</p>
+            <p><span class="bold">Location: </span>{{user.location}}</p>
+            <p><span class="bold">Astrological Sign: </span>{{user.sign}}</p>
+            <p><span class="bold">Job: </span>{{user.job}}</p>
+            <p><span class="bold">Do you want to have children? </span>{{user.kids}}</p>
+            <p><span class="bold">Email: </span>{{user.email}}</p>
+            <p><span class="bold">Phone Number: </span>{{user.phone}}</p>
+
 
                 <form class="updateForm" action="/profile/{{user.id}}/update" method="get">
                     <input class="update" type="submit" value="Update">

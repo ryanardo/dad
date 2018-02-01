@@ -20,13 +20,11 @@ public interface UserDAO {
     List<Integer> userLikedBy(User user);
     List<User> getMatchedPairs(User user);
 
-
-
     /* UPDATE * * * * * * * * * * */
-    void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic);
-//
+    void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic, String email, String phone);
 
     /* DELETE * * * * * * * * * * */
     void deleteById(int id);
+    void deleteUserLikes(int id);
 
 }

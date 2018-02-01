@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class User {
 
     //LOGIN
@@ -15,6 +17,8 @@ public class User {
     private String job;
     private String kids;
     private String profilePic;
+    private String email;
+    private String phone;
 
     /* CONSTRUCTORS * * * * * * * * * * */
     public User(int loginId, String realName, String gender, String userTagLine) {
@@ -32,7 +36,7 @@ public class User {
         this.userTagLine = userTagLine;
     }
 
-    public User(int loginId, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic) {
+    public User(int loginId, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic, String email, String phone) {
         this.loginId = loginId;
         this.realName = realName;
         this.gender = gender;
@@ -44,6 +48,8 @@ public class User {
         this.job = job;
         this.kids = kids;
         this.profilePic = profilePic;
+        this.email = email;
+        this.phone = phone;
 
     }
 
@@ -143,43 +149,48 @@ public class User {
         this.profilePic = profilePic;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         User user = (User) o;
-
-        if (id != user.id) return false;
-        if (loginId != user.loginId) return false;
-        if (!realName.equals(user.realName)) return false;
-        if (!gender.equals(user.gender)) return false;
-        if (!preferredGender.equals(user.preferredGender)) return false;
-        if (!userTagLine.equals(user.userTagLine)) return false;
-        if (!age.equals(user.age)) return false;
-        if (!location.equals(user.location)) return false;
-        if (!sign.equals(user.sign)) return false;
-        if (!job.equals(user.job)) return false;
-        if (!kids.equals(user.kids)) return false;
-        return profilePic.equals(user.profilePic);
+        return id == user.id &&
+                loginId == user.loginId &&
+                Objects.equals(realName, user.realName) &&
+                Objects.equals(gender, user.gender) &&
+                Objects.equals(preferredGender, user.preferredGender) &&
+                Objects.equals(userTagLine, user.userTagLine) &&
+                Objects.equals(age, user.age) &&
+                Objects.equals(location, user.location) &&
+                Objects.equals(sign, user.sign) &&
+                Objects.equals(job, user.job) &&
+                Objects.equals(kids, user.kids) &&
+                Objects.equals(profilePic, user.profilePic) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(phone, user.phone);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + loginId;
-        result = 31 * result + realName.hashCode();
-        result = 31 * result + gender.hashCode();
-        result = 31 * result + preferredGender.hashCode();
-        result = 31 * result + userTagLine.hashCode();
-        result = 31 * result + age.hashCode();
-        result = 31 * result + location.hashCode();
-        result = 31 * result + sign.hashCode();
-        result = 31 * result + job.hashCode();
-        result = 31 * result + kids.hashCode();
-        result = 31 * result + profilePic.hashCode();
-        return result;
+
+        return Objects.hash(id, loginId, realName, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic, email, phone);
     }
 }
+

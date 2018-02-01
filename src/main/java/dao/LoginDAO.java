@@ -6,7 +6,7 @@ import models.Login;
 public interface LoginDAO {
 
     //create
-    public void add(Login login);
+    void add(Login login);
 
     //read
     Integer getLoginId(String username, String password);
@@ -16,5 +16,5 @@ public interface LoginDAO {
     //update
 
     //delete
-    void delete(int id);
+    void deleteLogin(int id);
 }
