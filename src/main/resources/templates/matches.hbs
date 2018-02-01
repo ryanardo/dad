@@ -4,17 +4,24 @@
     <p>People that like you back: {{size}}</p>
     {{#if matches}}
         {{#each matches}}
+<div class="profileMatch">
             <br>
             <h3>{{realName}}</h3>
+            <br>
+            <img class="profilePicSmall" src="{{profilePic}}">
             <p>{{userTagLine}}</p>
-            <p>{{cGender}}</p>
-            <p>{{cPreferredGender}}</p>
+            <p>Is a: {{cGender}}</p>
+            <p>Looking for: {{cPreferredGender}}</p>
             <p>{{age}}</p>
             <p>{{location}}</p>
             <p>{{sign}}</p>
             <p>{{job}}</p>
             <p>{{kids}}</p>
-            <p><a href="/profile/{{our_user.id}}/search/{{id}}"><button>View Profile</button></a></p>
+            <p>{{email}}</p>
+            <p>{{phone}}</p>
+    <form class="match" action="/profile/{{our_user.id}}/search/{{id}}" method="get">
+    <input id="accountButton" type="submit" value="View Profile">
+</div>
         {{/each}}
     {{else}}
         <p>no one likes you</p>

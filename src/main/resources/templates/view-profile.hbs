@@ -1,6 +1,9 @@
+{{#partial "title"}}view-profile.hbs{{/partial}}
+
 {{#partial "content"}}
 
     <h2>Potential match:</h2>
+    <img class="profilePic" src="{{profile.profilePic}}">
     <p>Name: {{profile.realName}}</p>
     <p>{{profile.userTagLine}}</p>
     <p>Gender: {{gender}}</p>
@@ -10,6 +13,8 @@
     <p>Astrological Sign: {{profile.sign}}</p>
     <p>Job: {{profile.job}}</p>
     <p>Wants to have children? {{profile.kids}}</p>
+    <p>Email: {{profile.email}}</p>
+    <p>Phone Number: {{profile.phone}}</p>
 
     <form class="like" action="/profile/{{our_user.id}}/search/{{profile.id}}" method="post">
         <input id="likeButton" type="submit" value="( ͡° ͜ʖ ͡°) Like">
