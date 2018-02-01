@@ -23,7 +23,7 @@ public interface UserDAO {
 
 
     /* UPDATE * * * * * * * * * * */
-    void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids);
+    void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic);
 //
 
     /* DELETE * * * * * * * * * * */

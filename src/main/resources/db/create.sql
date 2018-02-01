@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS users (
   sign VARCHAR,
   job VARCHAR,
   kids VARCHAR,
+  profilePic VARCHAR,
   --foreign keys
   loginId INTEGER
 );

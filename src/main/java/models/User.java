@@ -14,6 +14,7 @@ public class User {
     private String sign;
     private String job;
     private String kids;
+    private String profilePic;
 
     /* CONSTRUCTORS * * * * * * * * * * */
     public User(int loginId, String realName, String gender, String userTagLine) {
@@ -31,7 +32,7 @@ public class User {
         this.userTagLine = userTagLine;
     }
 
-    public User(int loginId, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids) {
+    public User(int loginId, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic) {
         this.loginId = loginId;
         this.realName = realName;
         this.gender = gender;
@@ -42,6 +43,7 @@ public class User {
         this.sign = sign;
         this.job = job;
         this.kids = kids;
+        this.profilePic = profilePic;
 
     }
 
@@ -133,6 +135,52 @@ public class User {
         this.kids = kids;
     }
 
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        User user = (User) o;
+//
+//        if (id != user.id) return false;
+//        if (loginId != user.loginId) return false;
+//        if (realName != null ? !realName.equals(user.realName) : user.realName != null) return false;
+//        if (gender != null ? !gender.equals(user.gender) : user.gender != null) return false;
+//        if (preferredGender != null ? !preferredGender.equals(user.preferredGender) : user.preferredGender != null)
+//            return false;
+//        if (userTagLine != null ? !userTagLine.equals(user.userTagLine) : user.userTagLine != null) return false;
+//        if (age != null ? !age.equals(user.age) : user.age != null) return false;
+//        if (location != null ? !location.equals(user.location) : user.location != null) return false;
+//        if (sign != null ? !sign.equals(user.sign) : user.sign != null) return false;
+//        if (job != null ? !job.equals(user.job) : user.job != null) return false;
+//        return kids != null ? kids.equals(user.kids) : user.kids == null;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = id;
+//        result = 31 * result + loginId;
+//        result = 31 * result + (realName != null ? realName.hashCode() : 0);
+//        result = 31 * result + (gender != null ? gender.hashCode() : 0);
+//        result = 31 * result + (preferredGender != null ? preferredGender.hashCode() : 0);
+//        result = 31 * result + (userTagLine != null ? userTagLine.hashCode() : 0);
+//        result = 31 * result + (age != null ? age.hashCode() : 0);
+//        result = 31 * result + (location != null ? location.hashCode() : 0);
+//        result = 31 * result + (sign != null ? sign.hashCode() : 0);
+//        result = 31 * result + (job != null ? job.hashCode() : 0);
+//        result = 31 * result + (kids != null ? kids.hashCode() : 0);
+//        return result;
+//    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -142,31 +190,32 @@ public class User {
 
         if (id != user.id) return false;
         if (loginId != user.loginId) return false;
-        if (realName != null ? !realName.equals(user.realName) : user.realName != null) return false;
-        if (gender != null ? !gender.equals(user.gender) : user.gender != null) return false;
-        if (preferredGender != null ? !preferredGender.equals(user.preferredGender) : user.preferredGender != null)
-            return false;
-        if (userTagLine != null ? !userTagLine.equals(user.userTagLine) : user.userTagLine != null) return false;
-        if (age != null ? !age.equals(user.age) : user.age != null) return false;
-        if (location != null ? !location.equals(user.location) : user.location != null) return false;
-        if (sign != null ? !sign.equals(user.sign) : user.sign != null) return false;
-        if (job != null ? !job.equals(user.job) : user.job != null) return false;
-        return kids != null ? kids.equals(user.kids) : user.kids == null;
+        if (!realName.equals(user.realName)) return false;
+        if (!gender.equals(user.gender)) return false;
+        if (!preferredGender.equals(user.preferredGender)) return false;
+        if (!userTagLine.equals(user.userTagLine)) return false;
+        if (!age.equals(user.age)) return false;
+        if (!location.equals(user.location)) return false;
+        if (!sign.equals(user.sign)) return false;
+        if (!job.equals(user.job)) return false;
+        if (!kids.equals(user.kids)) return false;
+        return profilePic.equals(user.profilePic);
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + loginId;
-        result = 31 * result + (realName != null ? realName.hashCode() : 0);
-        result = 31 * result + (gender != null ? gender.hashCode() : 0);
-        result = 31 * result + (preferredGender != null ? preferredGender.hashCode() : 0);
-        result = 31 * result + (userTagLine != null ? userTagLine.hashCode() : 0);
-        result = 31 * result + (age != null ? age.hashCode() : 0);
-        result = 31 * result + (location != null ? location.hashCode() : 0);
-        result = 31 * result + (sign != null ? sign.hashCode() : 0);
-        result = 31 * result + (job != null ? job.hashCode() : 0);
-        result = 31 * result + (kids != null ? kids.hashCode() : 0);
+        result = 31 * result + realName.hashCode();
+        result = 31 * result + gender.hashCode();
+        result = 31 * result + preferredGender.hashCode();
+        result = 31 * result + userTagLine.hashCode();
+        result = 31 * result + age.hashCode();
+        result = 31 * result + location.hashCode();
+        result = 31 * result + sign.hashCode();
+        result = 31 * result + job.hashCode();
+        result = 31 * result + kids.hashCode();
+        result = 31 * result + profilePic.hashCode();
         return result;
     }
 }

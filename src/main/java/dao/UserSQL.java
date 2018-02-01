@@ -19,7 +19,7 @@ public class UserSQL implements UserDAO {
   /* CREATE * * * * * * * * * * */
     @Override
     public void add(User user) {
-        String sql = "INSERT INTO users (loginId, realName, gender, preferredGender, userTagLine, age, location, sign, job, kids) VALUES (:loginId, :realName, :gender, :preferredGender, :userTagLine, :age, :location, :sign, :job, :kids)";
+        String sql = "INSERT INTO users (loginId, realName, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic) VALUES (:loginId, :realName, :gender, :preferredGender, :userTagLine, :age, :location, :sign, :job, :kids, :profilePic)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(user)
@@ -137,8 +137,8 @@ public class UserSQL implements UserDAO {
 
     /* UPDATE * * * * * * * * * * */
     @Override
-    public void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids) {
-        String sql = "UPDATE users SET realName = :realName, gender = :gender, preferredGender = :preferredGender, userTagLine = :userTagLine, age = :age, location = :location, sign = :sign, job = :job, kids = :kids WHERE id = :id";
+    public void updateUser(int id, String realName, String gender, String preferredGender, String userTagLine, String age, String location, String sign, String job, String kids, String profilePic) {
+        String sql = "UPDATE users SET realName = :realName, gender = :gender, preferredGender = :preferredGender, userTagLine = :userTagLine, age = :age, location = :location, sign = :sign, job = :job, kids = :kids, profilePic = :profilePic WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
@@ -151,6 +151,7 @@ public class UserSQL implements UserDAO {
                     .addParameter("sign", sign)
                     .addParameter("job", job)
                     .addParameter("kids", kids)
+                    .addParameter("profilePic", profilePic)
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println(ex);

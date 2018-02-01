@@ -8,50 +8,43 @@
 <body>
 
 
-<nav>
-    <div class="nav-wrapper purple">
-      <a href="/" class="brand-logo center">Neon</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="sass.html"><i class="material-icons">home</i></a></li>
-              <li><a href="badges.html"><i class="material-icons">search</i></a></li>
-              <li><a href="collapsible.html">Matches</a></li>
-              <li><a href="mobile.html">Logout</a></li>
-            </ul>
-          </div>
-        </nav>
+
+<div class="container">
+    <div class="col s8">
+        <img class="profilePic" src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg">
+
+        <h2>{{login.userName}}</h2>
+
+        <p>Name: {{user.realName}}</p>
+
+        <p>{{user.userTagLine}}</p>
+
+        <p>Gender: {{gender}}</p>
+
+        <p>Seeking: {{preferredGender}}</p>
+
+        <p>Birthday: {{login.birthday}}</p>
+
+        <p>Age: {{user.age}}</p>
+
+        <p>Location: {{user.location}}</p>
+
+        <p>Astrological Sign: {{user.sign}}</p>
+
+        <p>Job: {{user.job}}</p>
+
+        <p>Do you want to have children? {{user.kids}}</p>
+
+        <form class="update" action="/profile/{{user.id}}/update" method="get">
+            <input class="update" type="submit" value="Update">
+        </form>
 
 
-<h2>{{login.userName}}</h2>
-
-<p>Name: {{user.realName}}</p>
-
-<p>{{user.userTagLine}}</p>
-
-<p>Gender: {{gender}}</p>
-
-<p>Seeking: {{preferredGender}}</p>
-
-<p>Birthday: {{login.birthday}}</p>
-
-<p>Age: {{user.age}}</p>
-
-<p>Location: {{user.location}}</p>
-
-<p>Astrological Sign: {{user.sign}}</p>
-
-<p>Job: {{user.job}}</p>
-
-<p>Do you want to have children? {{user.kids}}</p>
-
-
-
-
-
-<a href="/profile/{{user.id}}/matches"><button>View Matches</button></a><br>
-<a href="/profile/{{user.id}}/search"><button>View Potential Matches</button></a><br>
-<a href="/profile/{{user.id}}/update"><button>Update Profile</button></a><br>
-<a href="/profile/{{user.id}}/delete"><button>Delete Profile</button></a><br>
+        <form class="delete" action="/profile/{{user.id}}/delete" method="get">
+            <input class="delete" type="submit" value="Delete">
+        </form>
+    </div>
+</div>
 
 
 {{/partial}}
