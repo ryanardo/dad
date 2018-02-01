@@ -2,7 +2,7 @@
 
 #### An application for finding local singles in YOUR area!
 
-Authors: [Danyel Murray](https://github.com/danyellington), [Natalia Telpukhova](https://github.com/telpuhova), [Ryan G Ferris](https://github.com/ryanglenferris), [Kyle Tenzel](https://github.com/ktenzel),
+Authors: [Danyel Murray](https://github.com/danyellington), [Natalia Telpukhova](https://github.com/telpuhova), [Kyle Tenzel](https://github.com/ktenzel), [Ryan G Ferris](https://github.com/ryanglenferris)
 
 ## DESCRIPTION
 
@@ -24,7 +24,7 @@ Email me at [ryanglenferris@gmail.com](mailto:ryanglenferris@gmail.com) if you h
 ## TECHNOLOGIES USED
 
 * _Java_
-* _IntelliJ IEDA_
+* _IntelliJ IDEA_
 * _Git_
 * _GitHub_
 * _Postman_
