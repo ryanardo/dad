@@ -7,38 +7,24 @@
     </head>
 <body>
 
-
-
 <div class="container">
     <div class="col s8">
         <img class="profilePic" src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg">
-
         <h2>{{login.userName}}</h2>
-
         <p>Name: {{user.realName}}</p>
-
         <p>{{user.userTagLine}}</p>
-
         <p>Gender: {{gender}}</p>
-
         <p>Seeking: {{preferredGender}}</p>
-
         <p>Birthday: {{login.birthday}}</p>
-
         <p>Age: {{user.age}}</p>
-
         <p>Location: {{user.location}}</p>
-
         <p>Astrological Sign: {{user.sign}}</p>
-
         <p>Job: {{user.job}}</p>
-
         <p>Do you want to have children? {{user.kids}}</p>
 
         <form class="update" action="/profile/{{user.id}}/update" method="get">
             <input class="update" type="submit" value="Update">
         </form>
-
 
         <form class="delete" action="/profile/{{user.id}}/delete" method="get">
             <input class="delete" type="submit" value="Delete">
