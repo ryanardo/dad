@@ -1,27 +1,35 @@
 {{#partial "content"}}
     <div class="container">
-        <div class="col s8">
-            <img class="profilePic" src="{{user.profilePic}}">
-            <h2>{{login.userName}}</h2>
+        <div class="row">
+            <div class="col s6">
+                {{#if user.profilePic}}
+                <img class="profilePic" src="{{user.profilePic}}">
+                {{else}}
+                <img class="profilePic" src="http://payload433.cargocollective.com/1/13/440554/10972387/nside.gif">
+                {{/if}}
+            </div>
+            <div class="col s6">
+                <h2>{{login.userName}}</h2>
 
-            <p><span class="bold">Name: </span>{{user.realName}}</p>
-            <p>{{user.userTagLine}}</p>
-            <p><span class="bold">Gender: </span>{{gender}}</p>
-            <p><span class="bold">Seeking: </span>{{preferredGender}}</p>
-            <p><span class="bold">Birthday: </span>{{login.birthday}}</p>
-            <p><span class="bold">Age: </span>{{user.age}}</p>
-            <p><span class="bold">Location: </span>{{user.location}}</p>
-            <p><span class="bold">Astrological Sign: </span>{{user.sign}}</p>
-            <p><span class="bold">Job: </span>{{user.job}}</p>
-            <p><span class="bold">Do you want to have children? </span>{{user.kids}}</p>
+                <p><span class="bold">Name: </span>{{user.realName}}</p>
+                <p>{{user.userTagLine}}</p>
+                <p><span class="bold">Gender: </span>{{gender}}</p>
+                <p><span class="bold">Seeking: </span>{{preferredGender}}</p>
+                <p><span class="bold">Birthday: </span>{{login.birthday}}</p>
+                <p><span class="bold">Age: </span>{{user.age}}</p>
+                <p><span class="bold">Location: </span>{{user.location}}</p>
+                <p><span class="bold">Astrological Sign: </span>{{user.sign}}</p>
+                <p><span class="bold">Job: </span>{{user.job}}</p>
+                <p><span class="bold">Do you want to have children? </span>{{user.kids}}</p>
 
-            <form class="updateForm" action="/profile/{{user.id}}/update" method="get">
-                <input class="update" type="submit" value="Update">
-            </form>
+                <form class="updateForm" action="/profile/{{user.id}}/update" method="get">
+                    <input class="update" type="submit" value="Update">
+                </form>
 
-            <form class="deleteForm" action="/profile/{{user.id}}/delete" method="get">
-                <input class="delete" type="submit" value="Delete">
-            </form>
+                <form class="deleteForm" action="/profile/{{user.id}}/delete" method="get">
+                    <input class="delete" type="submit" value="Delete">
+                </form>
+            </div>
         </div>
     </div>
 {{/partial}}
