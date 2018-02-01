@@ -2,26 +2,11 @@
 
 #### An application for finding local singles in YOUR area!
 
-Authors: [Danyell Murray](https://github.com/danyellington), [Natalia Telpuhova](https://github.com/telpuhova), [Ryan G Ferris](https://github.com/ryanglenferris), [Kyle Tenzel](https://github.com/ktenzel),
+Authors: [Danyel Murray](https://github.com/danyellington), [Natalia Telpukhova](https://github.com/telpuhova), [Ryan G Ferris](https://github.com/ryanglenferris), [Kyle Tenzel](https://github.com/ktenzel),
 
 ## DESCRIPTION
 
-DESCRIPTION
-
-## SPECS
-
-| Behavior | Input | Output |
-| :------------- | :------------- | :------------- |
-| Behavior_1 | Input_1 | Output_1 |
-| Behavior_2 | Input_2 | Output_2 |
-| Behavior_3 | Input_3 | Output_3 |
-| Behavior_4 | Input_4 | Output_4 |
-| Behavior_5 | Input_5 | Output_5 |
-| Behavior_6 | Input_6 | Output_6 |
-| Behavior_7 | Input_7 | Output_7 |
-| Behavior_8 | Input_8 | Output_8 |
-| Behavior_9 | Input_9 | Output_9 |
-| Behavior_10 | Input_10 | Output_10 |
+Are you lonely? Sad? Constipated? We can't help ya with that last one, butt we can help you with the first one! Create an account today and find the love of your life NOW!
 
 ## SETUP/INSTALLATION REQUIREMENTS
 
@@ -54,7 +39,7 @@ Email me at [ryanglenferris@gmail.com](mailto:ryanglenferris@gmail.com) if you h
 
 ### LICENSE
 
-Copyright (c) 2017 Ryan G Ferris
+Copyright (c) 2018 Ryan G Ferris
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
