@@ -22,39 +22,26 @@ public class App {
 
     public static String getGenderString(String userGender) {
         String gender = "";
-
         if (userGender.equals("other")) {
             gender = "Other";
-        }
-        else if (userGender.equals("male")) {
+        } else if (userGender.equals("male")) {
             gender = "Man";
-        }
-        else if (userGender.equals("female")) {
+        } else if (userGender.equals("female")) {
             gender = "Woman";
-        }
-
-        return gender;
+        } return gender;
     }
 
     public static String getPreferredGenderString(String userPreferredGender) {
-
         String preferredGender = "";
-
-
         if (userPreferredGender.equals("other")) {
             preferredGender = "Other";
-        }
-        else if (userPreferredGender.equals("male")) {
+        } else if (userPreferredGender.equals("male")) {
             preferredGender = "Men";
-        }
-        else if (userPreferredGender.equals("female")) {
+        } else if (userPreferredGender.equals("female")) {
             preferredGender = "Women";
-        }
-        else if (userPreferredGender.equals("noPref")) {
+        } else if (userPreferredGender.equals("noPref")) {
             preferredGender = "No preference";
-        }
-
-        return preferredGender;
+        } return preferredGender;
     }
 
     public static void main(String[] args) {
@@ -65,23 +52,34 @@ public class App {
         UserSQL userDao = new UserSQL(sql2o);
         LoginSQL loginDao = new LoginSQL(sql2o);
 
-
         //HOME PAGE/LOGIN
-        get("/", (req, res) -> {
+        get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-
             return new ModelAndView(model, "login.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //LOG IN
+        post("/user", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
 
-        //new account:
+            String userName = request.queryParams("username");
+            String password = request.queryParams("password");
 
+            int login_id = loginDao.getLoginId(userName, password);
+            User user = userDao.findUserByLoginId(login_id);
+
+            model.put("user", user);
+
+            return new ModelAndView(model, "welcome.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //NEW ACCOUNT
         get("/user/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "sign-up.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+        //PROCESS NEW USER ACCOUNT FORM
         post("/user/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
 
@@ -112,18 +110,14 @@ public class App {
             return new ModelAndView(model, "welcome.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //
-
-        //personal info page
+        //USER PROFILE PAGE
         get("/user/:user_id/profile", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
 
             User user = userDao.findById(Integer.parseInt(request.params("user_id")));
-
-
             int login_id = user.getLoginId();
-            Login login = loginDao.findById(login_id);
 
+            Login login = loginDao.findById(login_id);
 
             String gender = getGenderString(user.getGender());
             String preferredGender = getPreferredGenderString(user.getPreferredGender());
@@ -136,24 +130,6 @@ public class App {
             return new ModelAndView(model, "profile.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-        //log in:
-        post("/user", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-
-            String userName = request.queryParams("username");
-            String password = request.queryParams("password");
-
-            int login_id = loginDao.getLoginId(userName, password);
-            User user = userDao.findUserByLoginId(login_id);
-
-            model.put("user", user);
-
-            return new ModelAndView(model, "welcome.hbs");
-        }, new HandlebarsTemplateEngine());
-
-
-
         //SEARCH FOR A POTENTIAL MATCH
         get("/profile/:user_id/search", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -162,8 +138,6 @@ public class App {
             User user = userDao.findById(user_id);
 
             List<User> users = userDao.matchingGender(user);
-
-
             String gender = getGenderString(user.getGender());
             String preferredGender = getPreferredGenderString(user.getPreferredGender());
 
@@ -176,8 +150,7 @@ public class App {
             return new ModelAndView(model, "search.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-        //view profile
+        //VIEW OTHER USER PROFILES
         get("/profile/:user_id/search/:profile_id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
 
@@ -200,6 +173,7 @@ public class App {
             return new ModelAndView(model, "view-profile.hbs");
         }, new HandlebarsTemplateEngine());
 
+        /* PROCESS OR CREATE OTHER USER PROFILES (????) */
         post("/profile/:user_id/search/:profile_id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
 
@@ -222,7 +196,6 @@ public class App {
             return new ModelAndView(model, "view-profile.hbs");
         }, new HandlebarsTemplateEngine());
 
-
         //SEE A LIST OF USERS YOU'VE MATCHED WITH
         get("/profile/:user_id/matches", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -244,17 +217,15 @@ public class App {
             return new ModelAndView(model, "matches.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-        //update
+        //FORM TO UPDATE USER PROFILE
         get("/profile/:user_id/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "update.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+        //PROCESS FORM TO UPDATE USER PROFILE
         post("/profile/:user_id/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-
 
             String name = request.queryParams("name");
             String gender = request.queryParams("gender");
@@ -278,9 +249,7 @@ public class App {
             return new ModelAndView(model, "profile.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-        //DELETE PROFILE
-
+        /* DELETE PROFILE */
         get("/profile/:user_id/delete", (request, response)-> {
             Map<String, Object> model = new HashMap<>();
 
@@ -290,6 +259,5 @@ public class App {
 
             return new ModelAndView(model, "goodbye.hbs");
         }, new HandlebarsTemplateEngine());
-
     }
 }

@@ -1,8 +1,17 @@
-{{#partial "content"}}
+{{#partial "title"}}success.hbs{{/partial}}
 
-    <h1>Welcome</h1>
-
-    <a href="/profile/:user_id/search/:profile_id">View My Profile</a>
-
+{{#partial "header"}}
 {{/partial}}
+
+{{#partial "nav"}}
+{{/partial}}
+
+{{#partial "content"}}
+     <h1>Welcome</h1>
+    <a href="/profile/:user_id/search/:profile_id">View My Profile</a>
+{{/partial}}
+
+{{#partial "footer"}}
+{{/partial}}
+
 {{> layout.hbs}}

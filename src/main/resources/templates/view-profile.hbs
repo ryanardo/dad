@@ -1,37 +1,35 @@
-{{#partial "content"}}
+{{#partial "title"}}view-profile.hbs{{/partial}}
 
+{{#partial "header"}}
+{{/partial}}
+
+{{#partial "nav"}}
+{{/partial}}
+
+{{#partial "content"}}
     <!--added for visibility and debugging:-->
     <style>
-body {color:black;}
-</style>
-    <!---->
+        body {color:black;}
+    </style>
 
     <h2>Potential match:</h2>
-
     <p>Name: {{profile.realName}}</p>
-
     <p>{{profile.userTagLine}}</p>
-
     <p>Gender: {{gender}}</p>
-
     <p>Seeking: {{preferredGender}}</p>
-
     <p>Age: {{profile.age}}</p>
-
     <p>Location: {{profile.location}}</p>
-
     <p>Astrological Sign: {{profile.sign}}</p>
-
     <p>Job: {{profile.job}}</p>
-
     <p>Wants to have children? {{profile.kids}}</p>
-
 
     <form class="like" action="/profile/{{our_user.id}}/search/{{profile.id}}" method="post">
         <input id="likeButton" type="submit" value="( ͡° ͜ʖ ͡°) Like">
     </form>
 
-
-
 {{/partial}}
+
+{{#partial "footer"}}
+{{/partial}}
+
 {{> layout.hbs}}

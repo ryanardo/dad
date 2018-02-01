@@ -1,25 +1,45 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <title>{{#block "title"}}Neon Connection{{/block}}</title>
+    {{#block "header"}}
+    {{/block}}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-{{#block "content"}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel='stylesheet' href='/app.css'>
+</head>
 
+<body>
+    <!--NAV BAR-->
+    <nav>
+        <div class="nav-wrapper purple">
+            <div class="container">
+                <div class="row">
+                    <div class="col s2 pull-s1"><a href="/user/{{user.id}}/profile" method="get"><i class="material-icons">home</i></a></div>
+                    <div class="col s6"><a href="/" class="brand-logo center">Neon</a></div>
+                    <div class="col s1 push-s1"><a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a></div>
+                    <div class="col s1 push-s1"><a href="/profile/{{user.id}}/search"><i class="material-icons">search</i></a></div>
+                    <div class="col s1 push-s1"><a href="/profile/{{user.id}}/matches">Matches</a></div>
+                    <div class="col s1 push-s1"><a href="/">Logout</a></div>
+                </div>
+            {{#block "nav"}}
+            {{/block}}
+            </div>
+        </div>
+    </nav>
 
-
+    <div class="container">
+        {{#block "content"}}
         {{/block}}
     </div>
+</body>
 
-</div>
-{{#block "footer"}}
-        <footer>
-        </footer>
-    </body>
+<footer>
+    {{#block "footer"}}
+    {{/block}}
+</footer>
 </html>
-
-{{/block}}

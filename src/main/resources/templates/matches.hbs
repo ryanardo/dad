@@ -1,5 +1,12 @@
-{{#partial "content"}}
+{{#partial "title"}}matches.hbs{{/partial}}
 
+{{#partial "header"}}
+{{/partial}}
+
+{{#partial "nav"}}
+{{/partial}}
+
+{{#partial "content"}}
     <h2>YOUR MATCHES</h2>
 
     <p>People that like you back: {{size}}</p>
@@ -22,4 +29,8 @@
     {{/if}}
 
 {{/partial}}
+
+{{#partial "footer"}}
+{{/partial}}
+
 {{> layout.hbs}}

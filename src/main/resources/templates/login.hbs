@@ -1,31 +1,42 @@
-{{#partial "content"}}
+{{#partial "title"}}login.hbs{{/partial}}
 
-<link rel='stylesheet' href='/app.css'>
-</head>
-<body>
-
-<div class="body"></div>
-<div class="grad"></div>
-<div class="content">
-    <div class="header">
-        <div><span id="neon">Neon</span></div><br>
-        <div><span id="connection">Connection</span></div>
-    </div>
-    <div class="card">
-        <form class="login" action="/user" method="post">
-            <input type="text" name="username" placeholder="Username">
-            <br>
-            <input type="password" name="password" placeholder="Password">
-            <br>
-            <input type="submit" value="Login">
-        </form>
-
-        <form class="account" action="/user/new" method="get">
-            <input id="accountButton" type="submit" value="Create Account">
-        </form>
-    </div>
-</div>
+{{#partial "header"}}
 {{/partial}}
 
+{{#partial "nav"}}
+{{/partial}}
 
-{{> layout.hbs}}git
+{{#partial "content"}}
+
+    <link rel='stylesheet' href='/app.css'>
+    </head>
+    <body>
+
+    <div class="body"></div>
+    <div class="grad"></div>
+    <div class="content">
+        <div class="header">
+            <div><span id="neon">Neon</span></div><br>
+            <div><span id="connection">Connection</span></div>
+        </div>
+        <div class="card">
+            <form class="login" action="/user" method="post">
+                <input type="text" name="username" placeholder="Username">
+                <br>
+                <input type="password" name="password" placeholder="Password">
+                <br>
+                <input type="submit" value="Login">
+            </form>
+
+            <form class="account" action="/user/new" method="get">
+                <input id="accountButton" type="submit" value="Create Account">
+            </form>
+        </div>
+    </div>
+
+{{/partial}}
+
+{{#partial "footer"}}
+{{/partial}}
+
+{{> layout.hbs}}

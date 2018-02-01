@@ -2,7 +2,6 @@ package models;
 
 public class User {
 
-    //LOGIN
     private int id;
     private int loginId;
     private String realName;
@@ -45,6 +44,7 @@ public class User {
 
     }
 
+    /* GETTERS AND SETTERS * * * * * * * * * * */
     public int getId() {
         return id;
     }
@@ -133,6 +133,7 @@ public class User {
         this.kids = kids;
     }
 
+    /* EQUALS AND HASH CODE * * * * * * * * * * */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,13 +1,23 @@
+{{#partial "title"}}welcome.hbs{{/partial}}
+
+{{#partial "header"}}
+{{/partial}}
+
+{{#partial "nav"}}
+{{/partial}}
+
 {{#partial "content"}}
+    <h1>Welcome</h1>
+    <!--get(user profile page) profile.hbs-->
+    <a href="/user/{{user.id}}/profile"><button>View My Profile</button></a><br>
 
-<h1>Welcome</h1>
-
-<!--<form actions="user/:loginId/profile" method="get">-->
-    <!--<button type="submit" class="btn btn-default">View My Profile</button>-->
-<!--</form>-->
-
-
-<a href="/user/{{user.id}}/profile"><button>View My Profile</button></a><br>
+    <!--<form actions="user/:loginId/profile" method="get">-->
+        <!--<button type="submit" class="btn btn-default">View My Profile</button>-->
+    <!--</form>-->
 
 {{/partial}}
+
+{{#partial "footer"}}
+{{/partial}}
+
 {{> layout.hbs}}
