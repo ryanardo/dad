@@ -19,10 +19,18 @@
             <a href="/" class="brand-logo center">Neon</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/user/{{user.id}}/profile"><i class="material-icons">home</i></a></li>
-                <li><a href="/profile/{{user.id}}/search"><i class="material-icons">search</i></a></li>
-                <li><a href="/profile/{{user.id}}/matches">Matches</a></li>
-                <li><a href="/">Logout</a></li>
+
+                {{#if user}}
+                    <li><a href="/user/{{user.id}}/profile"><i class="material-icons">home</i></a></li>
+                    <li><a href="/profile/{{user.id}}/search"><i class="material-icons">search</i></a></li>
+                    <li><a href="/profile/{{user.id}}/matches">Matches</a></li>
+                    <li><a href="/">Logout</a></li>
+                {{else}}
+                    <li><a href="/"><i class="material-icons">home</i></a></li>
+                    <li><a href="/"><i class="material-icons">search</i></a></li>
+                    <li><a href="/">Matches</a></li>
+                    <li><a href="/">Logout</a></li>
+                {{/if}}
             </ul>
         </div>
     </nav>
