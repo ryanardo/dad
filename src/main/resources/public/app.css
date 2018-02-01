@@ -30,7 +30,24 @@ body{
 	background-repeat: no-repeat;
 	z-index: 0;
 }
-
+h1{
+  color: #d100b1;
+  display: block;
+  font-family: 'Yellowtail', cursive;
+  font-size: 150px;
+  margin-right: -8em;
+  position: absolute;
+  text-shadow: 0 0 1px #d100b1, 0 -3px 3px rgba(255, 255, 255, 0.8), 0 3px 3px rgba(0, 0, 0, 0.5), 0 0 15px #d100b1, 0 0 45px rgba(209, 0, 177, 0.8);
+  text-align: center;
+  text-decoration: underline;
+  text-transform: none;
+  -webkit-transform: skew(-10deg) rotate(-10deg);
+  -ms-transform: skew(-10deg) rotate(-10deg);
+  transform: skew(-10deg) rotate(-10deg);
+  top: 41px;
+  width: 100%;
+  z-index: 11;
+  }
 #signUp{
     padding: 10px;
     }
@@ -53,6 +70,10 @@ body{
 	left: calc(40% - 300px);
 	z-index: 2;
 	line-height: 500%;
+}
+
+.welcome{
+top: calc(40% - 100px);
 }
 
 .nav-wrapper{
@@ -132,6 +153,22 @@ font-family: 'Monoton', sans-serif;
     padding: 4px;
 }
 
+
+.delete .update{
+border: 1px solid lightgray;
+	width: 350px;
+    height: 40px;
+    background: purple;
+    border: 1px solid purple;
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+}
+
+
 input[type=text]{
 	width: 340px;
 	height: 30px;
@@ -144,6 +181,10 @@ input[type=text]{
 	font-weight: 400;
 	padding: 4px;
 }
+.profilePic{
+    width: 30%;
+    height: 30%;
+    }
 
 input[type=password]{
 	width: 340px;

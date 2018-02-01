@@ -102,8 +102,9 @@ public class App {
             String sign = request.queryParams("sign");
             String job = request.queryParams("job");
             String kids = request.queryParams("kids");
+            String profilePic = request.queryParams("profilePic");
 
-            User newUser = new User(loginId, name, gender, preferredGender, userTagLine, age, location, sign, job, kids);
+            User newUser = new User(loginId, name, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic);
             userDao.add(newUser);
 
             model.put("user", userDao.findById(newUser.getId()));
@@ -265,12 +266,13 @@ public class App {
             String sign = request.queryParams("sign");
             String job = request.queryParams("job");
             String kids = request.queryParams("kids");
+            String profilePic = request.queryParams("profilePic");
 
             int user_id = Integer.parseInt(request.params("user_id"));
 
             User user = userDao.findById(user_id);
 
-            userDao.updateUser(user_id, name, gender, preferredGender, userTagLine, age, location, sign, job, kids);
+            userDao.updateUser(user_id, name, gender, preferredGender, userTagLine, age, location, sign, job, kids, profilePic);
 
             model.put("user", userDao.findById(user_id));
             model.put("login", loginDao.findById(user.getLoginId()));
