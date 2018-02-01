@@ -121,10 +121,8 @@ public class App {
 
             User user = userDao.findById(Integer.parseInt(request.params("user_id")));
 
-
             int login_id = user.getLoginId();
             Login login = loginDao.findById(login_id);
-
 
             String gender = getGenderString(user.getGender());
             String preferredGender = getPreferredGenderString(user.getPreferredGender());
@@ -170,7 +168,7 @@ public class App {
 
             model.put("cGender", gender);
             model.put("cPreferredGender", preferredGender);
-
+            model.put("user", user);
             model.put("users", users);
             model.put("size", users.size());
             model.put("our_id", user_id);
@@ -194,7 +192,7 @@ public class App {
 
             model.put("gender", gender);
             model.put("preferredGender", preferredGender);
-
+            model.put("user", user);
             model.put("our_user", user);
             model.put("profile", profile);
 
@@ -209,9 +207,12 @@ public class App {
 
             userDao.addLike(user_id, profile_id);
 
+
             User user = userDao.findById(user_id);
             User profile = userDao.findById(profile_id);
+
             model.put("our_user", user);
+            model.put("user", user);
             model.put("profile", profile);
 
             String gender = getGenderString(user.getGender());
@@ -232,13 +233,13 @@ public class App {
             User user = userDao.findById(user_id);
             List<User> matches = userDao.getMatchedPairs(user);
 
-            model.put("matches", matches);
-            model.put("size", matches.size());
-            model.put("our_user", user);
-
             String gender = getGenderString(user.getGender());
             String preferredGender = getPreferredGenderString(user.getPreferredGender());
 
+            model.put("matches", matches);
+            model.put("size", matches.size());
+            model.put("user", user);
+            model.put("our_user", user);
             model.put("cGender", gender);
             model.put("cPreferredGender", preferredGender);
 
@@ -249,13 +250,17 @@ public class App {
         //update
         get("/profile/:user_id/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+
+            int user_id = Integer.parseInt(request.params("user_id"));
+            User user = userDao.findById(user_id);
+            model.put("user", user);
+
             return new ModelAndView(model, "update.hbs");
         }, new HandlebarsTemplateEngine());
 
 
         post("/profile/:user_id/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-
 
             String name = request.queryParams("name");
             String gender = request.queryParams("gender");
@@ -285,6 +290,11 @@ public class App {
 
         get("/profile/:user_id/delete", (request, response)-> {
             Map<String, Object> model = new HashMap<>();
+
+
+            int user_id = Integer.parseInt(request.params("user_id"));
+            User user = userDao.findById(user_id);
+            model.put("user", user);
 
             int idOfUser = Integer.parseInt(request.params("user_id"));
             User deleteUser = userDao.findById(idOfUser);
