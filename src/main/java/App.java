@@ -143,12 +143,17 @@ public class App {
             String userName = request.queryParams("username");
             String password = request.queryParams("password");
 
-            int login_id = loginDao.getLoginId(userName, password);
+            int login_id = 0;
+            try {
+                login_id = loginDao.getLoginId(userName, password);
+            }
+            catch (Exception e) {
+                return new ModelAndView(model, "login-error.hbs");
+            }
             User user = userDao.findUserByLoginId(login_id);
-
             model.put("user", user);
-
             return new ModelAndView(model, "welcome.hbs");
+
         }, new HandlebarsTemplateEngine());
 
 
