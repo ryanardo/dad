@@ -59,7 +59,7 @@ public class App {
 
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/dad6.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/dad7.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         InterestSQL interestDao = new InterestSQL(sql2o);
         UserSQL userDao = new UserSQL(sql2o);
