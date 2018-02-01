@@ -1,13 +1,15 @@
 {{#partial "title"}}search.hbs{{/partial}}
 
 {{#partial "content"}}
-
-<h2>USER PROFILES</h2>
-
+<div class="col m12 center">
+    <h2>USER PROFILES</h2>
+</div>
     <p>Singles in your area: {{size}}</p>
     {{#if users}}
         {{#each users}}
+        <div class="col m6 ">
             <br>
+            <img class="profilePicSmall" src="{{profilePic}}">
             <h3>{{realName}}</h3>
             <p>{{userTagLine}}</p>
             <p>{{cGender}}</p>
@@ -20,6 +22,7 @@
             <p>{{email}}</p>
             <p>{{phone}}</p>
             <p><a href="/profile/{{our_id}}/search/{{id}}">view user</a></p>
+        </div>
         {{/each}}
     {{else}}
         <p>no users for you</p>

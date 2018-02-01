@@ -171,8 +171,12 @@ border: 1px solid lightgray;
 	font-weight: bold;
 	font-size: 1.5em;
 }
+
+.center {
+	text-align: center;
+}
 .profilePic{
-		margin-top: 10%;
+	margin-top: 10%;
     width: 90%;
     height: 90%;
     float: left;
@@ -180,6 +184,14 @@ border: 1px solid lightgray;
     border-radius: 50%;
     }
 
+.profilePicSmall{
+	margin-top: 10%;
+    width: 40%;
+    height: 100%;
+    float: left;
+    margin-right: 5%;
+    border-radius: 50%;
+    }
 
 input[type=text]{
 	width: 340px;
