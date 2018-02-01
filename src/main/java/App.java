@@ -256,7 +256,6 @@ public class App {
             Map<String, Object> model = new HashMap<>();
 
 
-
             String name = request.queryParams("name");
             String gender = request.queryParams("gender");
             String preferredGender = request.queryParams("preference");
