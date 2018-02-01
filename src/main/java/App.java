@@ -291,7 +291,6 @@ public class App {
         get("/profile/:user_id/delete", (request, response)-> {
             Map<String, Object> model = new HashMap<>();
 
-
             int user_id = Integer.parseInt(request.params("user_id"));
             User user = userDao.findById(user_id);
             model.put("user", user);
@@ -299,6 +298,9 @@ public class App {
             int idOfUser = Integer.parseInt(request.params("user_id"));
             User deleteUser = userDao.findById(idOfUser);
             userDao.deleteById(idOfUser);
+
+            int login_id = user.getLoginId();
+            loginDao.delete(login_id);
 
             return new ModelAndView(model, "goodbye.hbs");
         }, new HandlebarsTemplateEngine());

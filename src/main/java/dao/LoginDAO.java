@@ -16,4 +16,5 @@ public interface LoginDAO {
     //update
 
     //delete
+    void delete(int id);
 }
